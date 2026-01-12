@@ -1,0 +1,12 @@
+# robots.txt for SVG Converter
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# 크롤링 제외할 경로
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap 위치
+Sitemap: https://jiwonjae-svg.github.io/img-to-svg-converter/sitemap.xml

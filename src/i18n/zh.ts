@@ -1,0 +1,67 @@
+import type { Translations } from '../types';
+
+export const zh: Translations = {
+  app: {
+    title: 'SVG转换器',
+    subtitle: '图像转矢量',
+    description: '将PNG、JPG、WEBP图像转换为高质量SVG矢量文件',
+  },
+  dropzone: {
+    title: '将图片拖放到这里',
+    subtitle: '或点击选择文件',
+    dragActive: '放开文件！',
+    formats: '支持格式：PNG、JPG、WEBP（最大10MB）',
+  },
+  settings: {
+    title: '转换设置',
+    colorCount: '颜色数量',
+    colorCountDesc: '输出SVG的颜色数量（2-32）',
+    particleSize: '粒子大小',
+    particleSizeDesc: '圆形半径（1-10）',
+    particleDensity: '粒子密度',
+    particleDensityDesc: '采样密度（10-100%）',
+    blur: '模糊',
+    blurDesc: '去噪模糊强度',
+    reset: '重置设置',
+  },
+  actions: {
+    convert: '转换',
+    converting: '转换中...',
+    download: '下载',
+    downloadAll: '全部下载',
+    copy: '复制',
+    copied: '已复制！',
+    clear: '清除全部',
+    remove: '删除',
+  },
+  results: {
+    title: '转换结果',
+    noResults: '没有转换的图像',
+    svgCode: 'SVG代码',
+    preview: '预览',
+    colors: '提取的颜色',
+    processingTime: '处理时间',
+    seconds: '秒',
+  },
+  errors: {
+    invalidFile: '不支持的文件格式',
+    conversionFailed: '转换失败',
+    fileTooLarge: '文件太大（最大10MB）',
+    noImages: '请添加要转换的图像',
+  },
+  footer: {
+    developer: '开发者',
+    github: 'GitHub',
+    madeWith: '用❤️制作',
+  },
+  theme: {
+    light: '浅色模式',
+    dark: '深色模式',
+  },
+  language: {
+    ko: '한국어',
+    en: 'English',
+    ja: '日本語',
+    zh: '中文',
+  },
+};

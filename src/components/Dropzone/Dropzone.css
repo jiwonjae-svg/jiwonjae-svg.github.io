@@ -1,0 +1,141 @@
+.dropzone {
+  border: 2px dashed var(--border-color);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.dropzone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dropzone:hover {
+  border-color: var(--primary-color);
+}
+
+.dropzone:hover::before {
+  opacity: 0.03;
+}
+
+.dropzone-active {
+  border-color: var(--primary-color);
+  border-style: solid;
+}
+
+.dropzone-active::before {
+  opacity: 0.08;
+}
+
+.dropzone-reject {
+  border-color: var(--error-color);
+}
+
+.dropzone-reject::before {
+  background: var(--error-color);
+  opacity: 0.05;
+}
+
+.dropzone-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dropzone-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.dropzone:hover .dropzone-icon {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.dropzone-icon-active {
+  background: var(--primary-color);
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+.dropzone-icon-error {
+  background: var(--error-color);
+  color: white;
+}
+
+.dropzone-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.dropzone-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.dropzone-formats {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 2rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 640px) {
+  .dropzone {
+    padding: 2rem 1.5rem;
+  }
+
+  .dropzone-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .dropzone-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dropzone-title {
+    font-size: 1rem;
+  }
+}

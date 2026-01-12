@@ -1,0 +1,67 @@
+import type { Translations } from '../types';
+
+export const ko: Translations = {
+  app: {
+    title: 'SVG 변환기',
+    subtitle: '이미지를 벡터로',
+    description: 'PNG, JPG, WEBP 이미지를 고품질 SVG 벡터 파일로 변환하세요',
+  },
+  dropzone: {
+    title: '이미지를 여기에 끌어다 놓으세요',
+    subtitle: '또는 클릭하여 파일 선택',
+    dragActive: '파일을 놓으세요!',
+    formats: '지원 형식: PNG, JPG, WEBP (최대 10MB)',
+  },
+  settings: {
+    title: '변환 설정',
+    colorCount: '색상 수',
+    colorCountDesc: '출력 SVG의 색상 개수 (2-32)',
+    particleSize: '파티클 크기',
+    particleSizeDesc: '원의 반지름 (1-10)',
+    particleDensity: '파티클 밀도',
+    particleDensityDesc: '샘플링 밀도 (10-100%)',
+    blur: '블러',
+    blurDesc: '노이즈 제거를 위한 블러 강도',
+    reset: '설정 초기화',
+  },
+  actions: {
+    convert: '변환하기',
+    converting: '변환 중...',
+    download: '다운로드',
+    downloadAll: '모두 다운로드',
+    copy: '복사',
+    copied: '복사됨!',
+    clear: '모두 지우기',
+    remove: '삭제',
+  },
+  results: {
+    title: '변환 결과',
+    noResults: '변환된 이미지가 없습니다',
+    svgCode: 'SVG 코드',
+    preview: '미리보기',
+    colors: '추출된 색상',
+    processingTime: '처리 시간',
+    seconds: '초',
+  },
+  errors: {
+    invalidFile: '지원하지 않는 파일 형식입니다',
+    conversionFailed: '변환에 실패했습니다',
+    fileTooLarge: '파일 크기가 너무 큽니다 (최대 10MB)',
+    noImages: '변환할 이미지를 추가해주세요',
+  },
+  footer: {
+    developer: '개발자',
+    github: 'GitHub',
+    madeWith: '❤️로 만들었습니다',
+  },
+  theme: {
+    light: '라이트 모드',
+    dark: '다크 모드',
+  },
+  language: {
+    ko: '한국어',
+    en: 'English',
+    ja: '日本語',
+    zh: '中文',
+  },
+};

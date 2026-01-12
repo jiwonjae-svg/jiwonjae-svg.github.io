@@ -1,0 +1,16 @@
+{
+  "name": "SVG Converter",
+  "short_name": "SVG Converter",
+  "description": "Convert PNG, JPG, WEBP images to high-quality SVG vector files",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
