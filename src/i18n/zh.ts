@@ -8,8 +8,8 @@ export const zh: Translations = {
     descriptionSvgToImage: '将SVG文件转换为PNG或JPG图像',
   },
   mode: {
-    imageToSvg: '图像 → SVG',
-    svgToImage: 'SVG → 图像',
+    imageToSvg: '图像转SVG',
+    svgToImage: 'SVG转图像',
   },
   dropzone: {
     title: '将图片拖放到这里',
@@ -39,6 +39,7 @@ export const zh: Translations = {
     downloadSvg: '下载SVG',
     downloadPng: '下载PNG',
     downloadJpg: '下载JPG',
+    downloadWebp: '下载WEBP',
     copy: '复制',
     copied: '已复制！',
     clear: '清除全部',

@@ -8,8 +8,8 @@ export const en: Translations = {
     descriptionSvgToImage: 'Convert SVG files to PNG or JPG images',
   },
   mode: {
-    imageToSvg: 'Image → SVG',
-    svgToImage: 'SVG → Image',
+    imageToSvg: 'Image to SVG',
+    svgToImage: 'SVG to Image',
   },
   dropzone: {
     title: 'Drop images here',
@@ -39,6 +39,7 @@ export const en: Translations = {
     downloadSvg: 'Download SVG',
     downloadPng: 'Download PNG',
     downloadJpg: 'Download JPG',
+    downloadWebp: 'Download WEBP',
     copy: 'Copy',
     copied: 'Copied!',
     clear: 'Clear All',

@@ -120,6 +120,7 @@ export interface Translations {
     downloadSvg: string;
     downloadPng: string;
     downloadJpg: string;
+    downloadWebp: string;
     copy: string;
     copied: string;
     clear: string;

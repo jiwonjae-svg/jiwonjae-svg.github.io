@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import { Download, Copy, Check, Trash2, Code, Image, Clock } from 'lucide-react';
+import { Download, Copy, Check, Trash2, Code, Image, Clock, FileDown } from 'lucide-react';
 import { useAppStore } from '../../store';
 import { getTranslation } from '../../i18n';
-import { downloadSvg, copySvgToClipboard, sanitizeSvg, escapeHtml } from '../../utils';
+import { 
+  downloadSvg, 
+  copySvgToClipboard, 
+  sanitizeSvg, 
+  escapeHtml,
+  convertSvgToPng,
+  convertSvgToJpg,
+  convertSvgToWebp,
+  downloadBlob
+} from '../../utils';
 import type { ConversionResult } from '../../types';
 import toast from 'react-hot-toast';
 import './Results.css';
@@ -15,6 +24,7 @@ export const Results: React.FC = () => {
   const t = getTranslation(language);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<Record<string, 'preview' | 'code'>>({});
+  const [downloadMenuOpen, setDownloadMenuOpen] = useState<string | null>(null);
 
   const handleCopy = async (result: ConversionResult) => {
     try {
@@ -27,8 +37,48 @@ export const Results: React.FC = () => {
     }
   };
 
-  const handleDownload = (result: ConversionResult) => {
+  const handleDownloadSvg = (result: ConversionResult) => {
     downloadSvg(sanitizeSvg(result.svgCode), result.originalImage.file.name);
+    setDownloadMenuOpen(null);
+  };
+
+  const handleDownloadPng = async (result: ConversionResult) => {
+    try {
+      const blob = await convertSvgToPng(result.svgCode, 600, 600, 2);
+      const filename = result.originalImage.file.name.replace(/\.[^/.]+$/, '.png');
+      downloadBlob(blob, filename);
+      setDownloadMenuOpen(null);
+      toast.success('PNG downloaded!');
+    } catch (error) {
+      toast.error('Failed to convert to PNG');
+      console.error(error);
+    }
+  };
+
+  const handleDownloadJpg = async (result: ConversionResult) => {
+    try {
+      const blob = await convertSvgToJpg(result.svgCode, 600, 600, 0.95, 2);
+      const filename = result.originalImage.file.name.replace(/\.[^/.]+$/, '.jpg');
+      downloadBlob(blob, filename);
+      setDownloadMenuOpen(null);
+      toast.success('JPG downloaded!');
+    } catch (error) {
+      toast.error('Failed to convert to JPG');
+      console.error(error);
+    }
+  };
+
+  const handleDownloadWebp = async (result: ConversionResult) => {
+    try {
+      const blob = await convertSvgToWebp(result.svgCode, 600, 600, 0.95, 2);
+      const filename = result.originalImage.file.name.replace(/\.[^/.]+$/, '.webp');
+      downloadBlob(blob, filename);
+      setDownloadMenuOpen(null);
+      toast.success('WEBP downloaded!');
+    } catch (error) {
+      toast.error('Failed to convert to WEBP');
+      console.error(error);
+    }
   };
 
   const handleDownloadAll = () => {
@@ -157,13 +207,49 @@ export const Results: React.FC = () => {
                   </>
                 )}
               </button>
-              <button
-                className="btn btn-primary"
-                onClick={() => handleDownload(result)}
-              >
-                <Download size={16} />
-                {t.actions.download}
-              </button>
+              
+              <div className="download-menu-wrapper">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setDownloadMenuOpen(downloadMenuOpen === result.id ? null : result.id)}
+                >
+                  <Download size={16} />
+                  {t.actions.download}
+                </button>
+                
+                {downloadMenuOpen === result.id && (
+                  <div className="download-menu">
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadSvg(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadSvg}
+                    </button>
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadPng(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadPng}
+                    </button>
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadJpg(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadJpg}
+                    </button>
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadWebp(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadWebp}
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         ))}

@@ -8,8 +8,8 @@ export const ja: Translations = {
     descriptionSvgToImage: 'SVGファイルをPNGまたはJPG画像に変換します',
   },
   mode: {
-    imageToSvg: '画像 → SVG',
-    svgToImage: 'SVG → 画像',
+    imageToSvg: '画像からSVGへ',
+    svgToImage: 'SVGから画像へ',
   },
   dropzone: {
     title: '画像をここにドロップ',
@@ -39,6 +39,7 @@ export const ja: Translations = {
     downloadSvg: 'SVGダウンロード',
     downloadPng: 'PNGダウンロード',
     downloadJpg: 'JPGダウンロード',
+    downloadWebp: 'WEBPダウンロード',
     copy: 'コピー',
     copied: 'コピー完了！',
     clear: '全て削除',

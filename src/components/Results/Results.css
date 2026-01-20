@@ -189,6 +189,61 @@
   flex: 1;
 }
 
+.download-menu-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.download-menu {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  z-index: 100;
+  min-width: 180px;
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.download-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.download-menu-item:hover {
+  background: var(--bg-tertiary);
+  color: var(--primary-color);
+}
+
+.download-menu-item svg {
+  flex-shrink: 0;
+}
+
 @media (max-width: 768px) {
   .preview-comparison {
     grid-template-columns: 1fr;

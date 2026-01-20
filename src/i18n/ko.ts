@@ -8,8 +8,8 @@ export const ko: Translations = {
     descriptionSvgToImage: 'SVG 파일을 PNG 또는 JPG 이미지로 변환하세요',
   },
   mode: {
-    imageToSvg: '이미지 → SVG',
-    svgToImage: 'SVG → 이미지',
+    imageToSvg: '이미지에서 SVG로',
+    svgToImage: 'SVG에서 이미지로',
   },
   dropzone: {
     title: '이미지를 여기에 끌어다 놓으세요',
@@ -37,7 +37,9 @@ export const ko: Translations = {
     download: '다운로드',
     downloadAll: '모두 다운로드',    downloadSvg: 'SVG 다운로드',
     downloadPng: 'PNG 다운로드',
-    downloadJpg: 'JPG 다운로드',    copy: '복사',
+    downloadJpg: 'JPG 다운로드',
+    downloadWebp: 'WEBP 다운로드',
+    copy: '복사',
     copied: '복사됨!',
     clear: '모두 지우기',
     remove: '삭제',
