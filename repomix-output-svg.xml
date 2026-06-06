@@ -1,0 +1,5059 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+.vercelignore
+DEPLOYMENT.md
+eslint.config.js
+index.html
+LICENSE
+package.json
+public/.nojekyll
+public/404.html
+public/ads.txt
+public/favicon.svg
+public/manifest.json
+public/robots.txt
+public/sitemap.xml
+public/vite.svg
+README.md
+src/App.css
+src/App.tsx
+src/assets/react.svg
+src/components/Dropzone/Dropzone.css
+src/components/Dropzone/Dropzone.tsx
+src/components/Dropzone/index.ts
+src/components/Footer/Footer.css
+src/components/Footer/Footer.tsx
+src/components/Footer/index.ts
+src/components/Header/Header.css
+src/components/Header/Header.tsx
+src/components/Header/index.ts
+src/components/ImageList/ImageList.css
+src/components/ImageList/ImageList.tsx
+src/components/ImageList/index.ts
+src/components/index.ts
+src/components/Results/index.ts
+src/components/Results/Results.css
+src/components/Results/Results.tsx
+src/components/Settings/index.ts
+src/components/Settings/Settings.css
+src/components/Settings/Settings.tsx
+src/i18n/en.ts
+src/i18n/index.ts
+src/i18n/ja.ts
+src/i18n/ko.ts
+src/i18n/zh.ts
+src/index.css
+src/main.tsx
+src/store/index.ts
+src/store/useAppStore.ts
+src/types/index.ts
+src/utils/imageConverter.ts
+src/utils/index.ts
+src/utils/security.ts
+src/utils/svgToImage.ts
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vercel.json
+vite.config.ts
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="LICENSE">
+MIT License
+
+Copyright (c) 2026 jiwonjae-svg
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</file>
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Repomix
+repomix-output.xml
+</file>
+
+<file path=".vercelignore">
+node_modules
+.git
+.github
+dist
+.env.local
+.env.*.local
+*.log
+</file>
+
+<file path="eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+  },
+])
+</file>
+
+<file path="public/.nojekyll">
+
+</file>
+
+<file path="public/404.html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Converter</title>
+  <script>
+    // GitHub Pages SPA 라우팅 지원
+    // 404 페이지에서 index.html로 리다이렉트
+    sessionStorage.redirect = location.href;
+  </script>
+  <meta http-equiv="refresh" content="0;URL='/'">
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
+</file>
+
+<file path="public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="innerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818cf8"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 배경 -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)"/>
+  
+  <!-- SVG 심볼 -->
+  <g transform="translate(256, 256)">
+    <!-- 외부 원 -->
+    <circle cx="0" cy="0" r="160" fill="none" stroke="white" stroke-width="24" stroke-opacity="0.3"/>
+    
+    <!-- 벡터 포인트들 -->
+    <circle cx="-120" cy="0" r="24" fill="white"/>
+    <circle cx="120" cy="0" r="24" fill="white"/>
+    <circle cx="0" cy="-120" r="24" fill="white"/>
+    <circle cx="0" cy="120" r="24" fill="white"/>
+    
+    <!-- 연결선 -->
+    <path d="M -120 0 L 0 -120 L 120 0 L 0 120 Z" fill="none" stroke="white" stroke-width="16" stroke-linejoin="round"/>
+    
+    <!-- 중앙 다이아몬드 -->
+    <path d="M -50 0 L 0 -50 L 50 0 L 0 50 Z" fill="white"/>
+    
+    <!-- 내부 장식 -->
+    <circle cx="0" cy="0" r="20" fill="url(#innerGrad)"/>
+  </g>
+</svg>
+</file>
+
+<file path="public/manifest.json">
+{
+  "name": "SVG Converter",
+  "short_name": "SVG Converter",
+  "description": "Convert PNG, JPG, WEBP images to high-quality SVG vector files",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+</file>
+
+<file path="public/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+</file>
+
+<file path="src/App.css">
+/* 앱 레이아웃 */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.main {
+  flex: 1;
+  padding: 2rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 히어로 섹션 */
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 섹션 스타일 */
+.upload-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.convert-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn-convert {
+  min-width: 200px;
+  gap: 0.5rem;
+}
+
+.btn-badge {
+  background: white;
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  margin-left: 0.25rem;
+}
+
+/* Google AdSense 광고 컨테이너 */
+.ad-container {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90px;
+}
+
+.ad-container ins {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 스피너 */
+.spinner-white {
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-description {
+    font-size: 0.875rem;
+  }
+
+  .btn-convert {
+    width: 100%;
+  }
+}
+</file>
+
+<file path="src/assets/react.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+</file>
+
+<file path="src/components/Dropzone/Dropzone.css">
+.dropzone {
+  border: 2px dashed var(--border-color);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.dropzone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dropzone:hover {
+  border-color: var(--primary-color);
+}
+
+.dropzone:hover::before {
+  opacity: 0.03;
+}
+
+.dropzone-active {
+  border-color: var(--primary-color);
+  border-style: solid;
+}
+
+.dropzone-active::before {
+  opacity: 0.08;
+}
+
+.dropzone-reject {
+  border-color: var(--error-color);
+}
+
+.dropzone-reject::before {
+  background: var(--error-color);
+  opacity: 0.05;
+}
+
+.dropzone-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dropzone-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.dropzone:hover .dropzone-icon {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.dropzone-icon-active {
+  background: var(--primary-color);
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+.dropzone-icon-error {
+  background: var(--error-color);
+  color: white;
+}
+
+.dropzone-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.dropzone-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.dropzone-formats {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border-radius: 2rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 640px) {
+  .dropzone {
+    padding: 2rem 1.5rem;
+  }
+
+  .dropzone-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .dropzone-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dropzone-title {
+    font-size: 1rem;
+  }
+}
+</file>
+
+<file path="src/components/Dropzone/index.ts">
+export { Dropzone } from './Dropzone';
+</file>
+
+<file path="src/components/Footer/Footer.css">
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-made {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.footer-developer {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.footer-github:hover {
+  background: var(--bg-primary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.footer-copyright {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.footer-copyright p {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .footer-developer {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+</file>
+
+<file path="src/components/Footer/index.ts">
+export { Footer } from './Footer';
+</file>
+
+<file path="src/components/Header/index.ts">
+export { Header } from './Header';
+</file>
+
+<file path="src/components/ImageList/ImageList.css">
+.image-list {
+  margin-top: 1.5rem;
+}
+
+.image-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.image-list-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.image-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.image-preview {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-status {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.image-status svg {
+  width: 14px;
+  height: 14px;
+}
+
+.image-status-processing {
+  background: var(--primary-color);
+  opacity: 1;
+}
+
+.image-status-completed {
+  background: var(--success-color);
+  color: white;
+  opacity: 1;
+}
+
+.image-status-error {
+  background: var(--error-color);
+  color: white;
+  opacity: 1;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.image-remove {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--error-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.image-item:hover .image-remove {
+  opacity: 1;
+}
+
+.image-remove:hover {
+  transform: scale(1.1);
+}
+
+.image-name {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .image-remove {
+    opacity: 1;
+  }
+}
+</file>
+
+<file path="src/components/ImageList/ImageList.tsx">
+import React from 'react';
+import { X } from 'lucide-react';
+import { useAppStore } from '../../store';
+import { getTranslation } from '../../i18n';
+import './ImageList.css';
+
+/**
+ * 업로드된 이미지 목록 컴포넌트
+ */
+export const ImageList: React.FC = () => {
+  const { images, removeImage, clearImages, language } = useAppStore();
+  const t = getTranslation(language);
+
+  if (images.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="image-list">
+      <div className="image-list-header">
+        <h3 className="image-list-title">
+          {images.length} {images.length === 1 ? 'image' : 'images'}
+        </h3>
+        <button
+          className="btn btn-text"
+          onClick={clearImages}
+          aria-label={t.actions.clear}
+        >
+          {t.actions.clear}
+        </button>
+      </div>
+
+      <div className="image-grid">
+        {images.map((image) => (
+          <div key={image.id} className="image-item">
+            <div className="image-preview">
+              <img
+                src={image.preview}
+                alt={image.file.name}
+                loading="lazy"
+              />
+              <div className={`image-status image-status-${image.status}`}>
+                {image.status === 'processing' && (
+                  <div className="spinner" aria-label="Processing" />
+                )}
+                {image.status === 'completed' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                )}
+                {image.status === 'error' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <button
+              className="image-remove"
+              onClick={() => removeImage(image.id)}
+              aria-label={t.actions.remove}
+            >
+              <X size={14} />
+            </button>
+            <p className="image-name" title={image.file.name}>
+              {image.file.name}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+</file>
+
+<file path="src/components/ImageList/index.ts">
+export { ImageList } from './ImageList';
+</file>
+
+<file path="src/components/index.ts">
+export { Header } from './Header';
+export { Footer } from './Footer';
+export { Dropzone } from './Dropzone';
+export { ImageList } from './ImageList';
+export { Settings } from './Settings';
+export { Results } from './Results';
+</file>
+
+<file path="src/components/Results/index.ts">
+export { Results } from './Results';
+</file>
+
+<file path="src/components/Settings/index.ts">
+export { Settings } from './Settings';
+</file>
+
+<file path="src/components/Settings/Settings.css">
+.settings-panel {
+  background: var(--bg-secondary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.settings-title h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setting-item-row {
+  flex-direction: column;
+}
+
+.setting-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting-label label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.setting-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: var(--primary-light);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.setting-desc {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.setting-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.setting-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.setting-checkbox label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* Slider */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-tertiary);
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Select */
+.select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.select:hover {
+  border-color: var(--primary-color);
+}
+
+.select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+@media (max-width: 640px) {
+  .settings-panel {
+    padding: 1rem;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+</file>
+
+<file path="src/components/Settings/Settings.tsx">
+import React from 'react';
+import { Settings as SettingsIcon, RotateCcw } from 'lucide-react';
+import { useAppStore } from '../../store';
+import { getTranslation } from '../../i18n';
+import './Settings.css';
+
+/**
+ * 변환 설정 컴포넌트
+ */
+export const Settings: React.FC = () => {
+  const { settings, updateSettings, resetSettings, language } = useAppStore();
+  const t = getTranslation(language);
+
+  return (
+    <div className="settings-panel">
+      <div className="settings-header">
+        <div className="settings-title">
+          <SettingsIcon size={18} />
+          <h3>{t.settings.title}</h3>
+        </div>
+        <button
+          className="btn btn-text btn-sm"
+          onClick={resetSettings}
+          aria-label={t.settings.reset}
+        >
+          <RotateCcw size={14} />
+          {t.settings.reset}
+        </button>
+      </div>
+
+      <div className="settings-grid">
+        {/* 파티클 크기 */}
+        <div className="setting-item">
+          <div className="setting-label">
+            <label htmlFor="particleSize">{t.settings.particleSize}</label>
+            <span className="setting-value">{settings.particleSize}</span>
+          </div>
+          <input
+            type="range"
+            id="particleSize"
+            min="1"
+            max="10"
+            step="0.5"
+            value={settings.particleSize}
+            onChange={(e) => updateSettings({ particleSize: Number(e.target.value) })}
+            className="slider"
+          />
+          <p className="setting-desc">{t.settings.particleSizeDesc}</p>
+        </div>
+
+        {/* 파티클 밀도 */}
+        <div className="setting-item">
+          <div className="setting-label">
+            <label htmlFor="particleDensity">{t.settings.particleDensity}</label>
+            <span className="setting-value">{settings.particleDensity}%</span>
+          </div>
+          <input
+            type="range"
+            id="particleDensity"
+            min="10"
+            max="100"
+            step="5"
+            value={settings.particleDensity}
+            onChange={(e) => updateSettings({ particleDensity: Number(e.target.value) })}
+            className="slider"
+          />
+          <p className="setting-desc">{t.settings.particleDensityDesc}</p>
+        </div>
+
+        {/* 블러 */}
+        <div className="setting-item">
+          <div className="setting-label">
+            <label htmlFor="blur">{t.settings.blur}</label>
+            <span className="setting-value">{settings.blur}</span>
+          </div>
+          <input
+            type="range"
+            id="blur"
+            min="0"
+            max="5"
+            step="0.5"
+            value={settings.blur}
+            onChange={(e) => updateSettings({ blur: Number(e.target.value) })}
+            className="slider"
+          />
+          <p className="setting-desc">{t.settings.blurDesc}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+</file>
+
+<file path="src/i18n/index.ts">
+import type { Language, Translations } from '../types';
+import { ko } from './ko';
+import { en } from './en';
+import { ja } from './ja';
+import { zh } from './zh';
+
+/**
+ * 언어별 번역 데이터 맵
+ */
+export const translations: Record<Language, Translations> = {
+  ko,
+  en,
+  ja,
+  zh,
+};
+
+/**
+ * 현재 언어에 맞는 번역 가져오기
+ */
+export const getTranslation = (language: Language): Translations => {
+  return translations[language] || translations.en;
+};
+
+/**
+ * 브라우저 기본 언어 감지
+ */
+export const detectBrowserLanguage = (): Language => {
+  const browserLang = navigator.language.split('-')[0];
+  const supportedLanguages: Language[] = ['ko', 'en', 'ja', 'zh'];
+  
+  if (supportedLanguages.includes(browserLang as Language)) {
+    return browserLang as Language;
+  }
+  
+  return 'en';
+};
+
+export { ko, en, ja, zh };
+</file>
+
+<file path="src/index.css">
+/**
+ * SVG Converter - 글로벌 스타일
+ * 다크/라이트 테마 지원
+ */
+
+/* CSS 변수 - 라이트 테마 (기본) */
+:root,
+[data-theme="light"] {
+  /* 배경 색상 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  /* 텍스트 색상 */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  
+  /* 브랜드 색상 */
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: rgba(99, 102, 241, 0.1);
+  --secondary-color: #8b5cf6;
+  
+  /* 상태 색상 */
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  
+  /* 테두리 */
+  --border-color: #e2e8f0;
+  
+  /* 헤더 */
+  --header-bg: rgba(255, 255, 255, 0.9);
+  
+  /* 그림자 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 다크 테마 */
+[data-theme="dark"] {
+  /* 배경 색상 */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  /* 텍스트 색상 */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #64748b;
+  
+  /* 브랜드 색상 */
+  --primary-color: #818cf8;
+  --primary-hover: #6366f1;
+  --primary-light: rgba(129, 140, 248, 0.15);
+  --secondary-color: #a78bfa;
+  
+  /* 상태 색상 */
+  --success-color: #34d399;
+  --warning-color: #fbbf24;
+  --error-color: #f87171;
+  
+  /* 테두리 */
+  --border-color: #334155;
+  
+  /* 헤더 */
+  --header-bg: rgba(15, 23, 42, 0.9);
+  
+  /* 그림자 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* 리셋 및 기본 스타일 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* 타이포그래피 */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* 버튼 스타일 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-secondary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-text:hover:not(:disabled) {
+  color: var(--primary-color);
+  background: var(--primary-light);
+}
+
+.btn-icon {
+  padding: 0.5rem;
+  background: transparent;
+  color: var(--text-tertiary);
+}
+
+.btn-icon:hover:not(:disabled) {
+  color: var(--error-color);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+}
+
+.btn-lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+}
+
+/* 입력 필드 공통 스타일 */
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* 선택 텍스트 스타일 */
+::selection {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+/* 포커스 스타일 */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 유틸리티 클래스 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+</file>
+
+<file path="src/main.tsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+</file>
+
+<file path="src/store/index.ts">
+export { useAppStore, useTranslation } from './useAppStore';
+</file>
+
+<file path="src/utils/imageConverter.ts">
+/**
+ * 파티클 기반 이미지 → SVG 변환 유틸리티
+ * 2-패스 격자: 첫 번째 패스로 정렬된 격자 배치, 두 번째 패스로 사이 빈틈 메우기
+ */
+
+import type { UploadedImage, ConversionResult, ConversionSettings } from '../types';
+
+// ============================================
+// 타입 정의
+// ============================================
+
+interface Color {
+  r: number;
+  g: number;
+  b: number;
+}
+
+interface ParticleWithColor {
+  x: number;
+  y: number;
+  color: Color;
+}
+
+// ============================================
+// 유틸리티 함수
+// ============================================
+
+const rgbToHex = (r: number, g: number, b: number): string => {
+  return `#${[r, g, b].map(x => Math.round(x).toString(16).padStart(2, '0')).join('')}`;
+};
+
+const getLuminance = (color: Color): number => {
+  return 0.299 * color.r + 0.587 * color.g + 0.114 * color.b;
+};
+
+// ============================================
+// 이미지 전처리
+// ============================================
+
+/**
+ * 가우시안 블러
+ */
+const applyGaussianBlur = (imageData: ImageData, sigma: number): ImageData => {
+  const { width, height, data } = imageData;
+  const radius = Math.ceil(sigma * 3);
+  const size = radius * 2 + 1;
+  
+  // 가우시안 커널 생성
+  const kernel = new Float32Array(size);
+  let sum = 0;
+  for (let i = 0; i < size; i++) {
+    const x = i - radius;
+    kernel[i] = Math.exp(-(x * x) / (2 * sigma * sigma));
+    sum += kernel[i];
+  }
+  for (let i = 0; i < size; i++) {
+    kernel[i] /= sum;
+  }
+  
+  const newData = new Uint8ClampedArray(data.length);
+  const temp = new Uint8ClampedArray(data.length);
+  
+  // 수평 블러
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let r = 0, g = 0, b = 0, a = 0;
+      
+      for (let k = -radius; k <= radius; k++) {
+        const px = Math.min(Math.max(x + k, 0), width - 1);
+        const idx = (y * width + px) * 4;
+        const weight = kernel[k + radius];
+        
+        r += data[idx] * weight;
+        g += data[idx + 1] * weight;
+        b += data[idx + 2] * weight;
+        a += data[idx + 3] * weight;
+      }
+      
+      const idx = (y * width + x) * 4;
+      temp[idx] = r;
+      temp[idx + 1] = g;
+      temp[idx + 2] = b;
+      temp[idx + 3] = a;
+    }
+  }
+  
+  // 수직 블러
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let r = 0, g = 0, b = 0, a = 0;
+      
+      for (let k = -radius; k <= radius; k++) {
+        const py = Math.min(Math.max(y + k, 0), height - 1);
+        const idx = (py * width + x) * 4;
+        const weight = kernel[k + radius];
+        
+        r += temp[idx] * weight;
+        g += temp[idx + 1] * weight;
+        b += temp[idx + 2] * weight;
+        a += temp[idx + 3] * weight;
+      }
+      
+      const idx = (y * width + x) * 4;
+      newData[idx] = r;
+      newData[idx + 1] = g;
+      newData[idx + 2] = b;
+      newData[idx + 3] = a;
+    }
+  }
+  
+  return new ImageData(newData, width, height);
+};
+
+// ============================================
+// 색상 수집
+// ============================================
+
+/**
+ * 배경색 감지 (배열 처리)
+ */
+const detectBackgroundColor = (data: Uint8ClampedArray, width: number, height: number): Color => {
+  const corners = [
+    [0, 1, 2],
+    [(width - 1) * 4, (width - 1) * 4 + 1, (width - 1) * 4 + 2],
+    [(height - 1) * width * 4, (height - 1) * width * 4 + 1, (height - 1) * width * 4 + 2],
+    [((height - 1) * width + width - 1) * 4, ((height - 1) * width + width - 1) * 4 + 1, ((height - 1) * width + width - 1) * 4 + 2]
+  ];
+  
+  let r = 0, g = 0, b = 0;
+  for (const [ri, gi, bi] of corners) {
+    r += data[ri];
+    g += data[gi];
+    b += data[bi];
+  }
+  
+  return { r: r / 4, g: g / 4, b: b / 4 };
+};
+
+/**
+ * 이미지의 고유 색상 추출
+ */
+const extractUniqueColors = (data: Uint8ClampedArray, width: number, height: number): Color[] => {
+  const colorMap = new Map<string, Color>();
+  const bgColor = detectBackgroundColor(data, width, height);
+  const bgLuminance = getLuminance(bgColor);
+  
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] < 128) continue;
+    
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    
+    // 배경색 필터링 (밝은 배경만)
+    if (bgLuminance > 200) {
+      const dr = r - bgColor.r;
+      const dg = g - bgColor.g;
+      const db = b - bgColor.b;
+      const dist = Math.sqrt(dr * dr + dg * dg + db * db);
+      if (dist < 30) continue;
+    }
+    
+    const key = `${Math.round(r)},${Math.round(g)},${Math.round(b)}`;
+    if (!colorMap.has(key)) {
+      colorMap.set(key, { r, g, b });
+    }
+  }
+  
+  return Array.from(colorMap.values());
+};
+
+// ============================================
+// 파티클 병합 및 최적화
+// ============================================
+
+/**
+ * 인접한 파티클들을 클러스터로 그룹화 (공간 분할 최적화)
+ */
+const clusterAdjacentParticles = (
+  particles: ParticleWithColor[],
+  maxDistance: number
+): ParticleWithColor[][] => {
+  if (particles.length === 0) return [];
+  
+  // 공간 해싱: 그리드 기반 인덱싱
+  const cellSize = maxDistance;
+  const grid = new Map<string, number[]>();
+  
+  // 파티클을 그리드 셀에 배치
+  particles.forEach((p, idx) => {
+    const cellX = Math.floor(p.x / cellSize);
+    const cellY = Math.floor(p.y / cellSize);
+    const key = `${cellX},${cellY}`;
+    
+    if (!grid.has(key)) {
+      grid.set(key, []);
+    }
+    grid.get(key)!.push(idx);
+  });
+  
+  // 인접 셀 검색용 오프셋
+  const neighborOffsets = [
+    [0, 0], [-1, -1], [-1, 0], [-1, 1],
+    [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]
+  ];
+  
+  const clusters: ParticleWithColor[][] = [];
+  const visited = new Set<number>();
+  
+  for (let i = 0; i < particles.length; i++) {
+    if (visited.has(i)) continue;
+    
+    const cluster: ParticleWithColor[] = [particles[i]];
+    visited.add(i);
+    
+    // BFS로 인접한 파티클 찾기 (인접 셀만 검색)
+    const queue = [i];
+    
+    while (queue.length > 0) {
+      const currentIdx = queue.shift()!;
+      const current = particles[currentIdx];
+      
+      const cellX = Math.floor(current.x / cellSize);
+      const cellY = Math.floor(current.y / cellSize);
+      
+      // 인접한 9개 셀만 검색
+      for (const [dx, dy] of neighborOffsets) {
+        const neighborKey = `${cellX + dx},${cellY + dy}`;
+        const neighborIndices = grid.get(neighborKey);
+        
+        if (!neighborIndices) continue;
+        
+        for (const j of neighborIndices) {
+          if (visited.has(j)) continue;
+          
+          const other = particles[j];
+          const distX = current.x - other.x;
+          const distY = current.y - other.y;
+          const dist = Math.sqrt(distX * distX + distY * distY);
+          
+          if (dist <= maxDistance) {
+            cluster.push(other);
+            visited.add(j);
+            queue.push(j);
+          }
+        }
+      }
+    }
+    
+    clusters.push(cluster);
+  }
+  
+  return clusters;
+};
+
+/**
+ * 클러스터를 하나의 경로로 변환 (Convex Hull 사용)
+ */
+const clusterToPath = (cluster: ParticleWithColor[], radius: number): string => {
+  if (cluster.length === 1) {
+    const p = cluster[0];
+    return `<circle cx="${p.x}" cy="${p.y}" r="${radius}"/>`;
+  }
+  
+  // 여러 원들을 하나의 path로 결합
+  const circles = cluster.map(p => {
+    // 각 원을 path로 표현
+    return `M ${p.x - radius},${p.y} a ${radius},${radius} 0 1,0 ${radius * 2},0 a ${radius},${radius} 0 1,0 ${-radius * 2},0`;
+  }).join(' ');
+  
+  return `<path d="${circles}"/>`;
+};
+
+// ============================================
+// 파티클 생성 (2-패스 격자)
+// ============================================
+
+/**
+ * 첫 번째 패스: 정렬된 격자로 파티클 수집
+ */
+const collectGridParticles = (
+  imageData: ImageData,
+  density: number,
+  particleSize: number
+): ParticleWithColor[] => {
+  const { width, height, data } = imageData;
+  const particles: ParticleWithColor[] = [];
+  
+  // 배경색 감지
+  const bgColor = detectBackgroundColor(data, width, height);
+  const bgLuminance = getLuminance(bgColor);
+  
+  // 밀도에 따른 파티클 간격 계산
+  const step = Math.max(particleSize * 2, Math.round(particleSize * 2 * (100 / density)));
+  
+  for (let y = particleSize; y < height; y += step) {
+    for (let x = particleSize; x < width; x += step) {
+      const px = Math.round(x);
+      const py = Math.round(y);
+      
+      if (px < 0 || px >= width || py < 0 || py >= height) continue;
+      
+      const idx = (py * width + px) * 4;
+      
+      // 투명도 체크
+      if (data[idx + 3] < 128) continue;
+      
+      const pixelColor: Color = {
+        r: data[idx],
+        g: data[idx + 1],
+        b: data[idx + 2]
+      };
+      
+      // 배경색 필터링 (밝은 배경만)
+      if (bgLuminance > 200) {
+        const dr = pixelColor.r - bgColor.r;
+        const dg = pixelColor.g - bgColor.g;
+        const db = pixelColor.b - bgColor.b;
+        const dist = Math.sqrt(dr * dr + dg * dg + db * db);
+        if (dist < 30) continue;
+      }
+      
+      particles.push({ x: px, y: py, color: pixelColor });
+    }
+  }
+  
+  return particles;
+};
+
+/**
+ * 두 번째 패스: 격자 사이 중간 지점에 파티클 추가
+ */
+const collectOffsetParticles = (
+  imageData: ImageData,
+  density: number,
+  particleSize: number
+): ParticleWithColor[] => {
+  const { width, height, data } = imageData;
+  const particles: ParticleWithColor[] = [];
+  
+  // 배경색 감지
+  const bgColor = detectBackgroundColor(data, width, height);
+  const bgLuminance = getLuminance(bgColor);
+  
+  // 첫 번째 패스와 동일한 간격 계산
+  const step = Math.max(particleSize * 2, Math.round(particleSize * 2 * (100 / density)));
+  const offset = step / 2;
+  
+  // offset을 적용한 격자로 파티클 수집
+  for (let y = particleSize + offset; y < height; y += step) {
+    for (let x = particleSize + offset; x < width; x += step) {
+      const px = Math.round(x);
+      const py = Math.round(y);
+      
+      if (px < 0 || px >= width || py < 0 || py >= height) continue;
+      
+      const idx = (py * width + px) * 4;
+      
+      // 투명도 체크
+      if (data[idx + 3] < 128) continue;
+      
+      const pixelColor: Color = {
+        r: data[idx],
+        g: data[idx + 1],
+        b: data[idx + 2]
+      };
+      
+      // 배경색 필터링 (밝은 배경만)
+      if (bgLuminance > 200) {
+        const dr = pixelColor.r - bgColor.r;
+        const dg = pixelColor.g - bgColor.g;
+        const db = pixelColor.b - bgColor.b;
+        const dist = Math.sqrt(dr * dr + dg * dg + db * db);
+        if (dist < 30) continue;
+      }
+      
+      particles.push({ x: px, y: py, color: pixelColor });
+    }
+  }
+  
+  return particles;
+};
+
+// ============================================
+// 메인 변환 함수
+// ============================================
+
+export const convertImageToSvg = async (
+  image: UploadedImage,
+  settings: ConversionSettings
+): Promise<ConversionResult> => {
+  return new Promise((resolve, reject) => {
+    const startTime = performance.now();
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        
+        if (!ctx) {
+          throw new Error('Canvas context not available');
+        }
+        
+        // 이미지 크기 제한 (작은 크기로 리사이징하여 파티클 수 감소)
+        const maxSize = 600;
+        let { width, height } = img;
+        
+        if (width > maxSize || height > maxSize) {
+          const ratio = Math.min(maxSize / width, maxSize / height);
+          width = Math.floor(width * ratio);
+          height = Math.floor(height * ratio);
+        }
+        
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        let imageData = ctx.getImageData(0, 0, width, height);
+        
+        // 1. 블러 적용 (옵션)
+        if (settings.blur > 0) {
+          imageData = applyGaussianBlur(imageData, settings.blur);
+        }
+        
+        // 2. 첫 번째 패스: 정렬된 격자로 파티클 수집
+        const firstPassParticles = collectGridParticles(
+          imageData,
+          settings.particleDensity,
+          settings.particleSize
+        );
+        
+        // 3. 두 번째 패스: 격자 사이 중간 지점에 파티클 추가
+        const secondPassParticles = collectOffsetParticles(
+          imageData,
+          settings.particleDensity,
+          settings.particleSize
+        );
+        
+        // 4. 모든 파티클 병합
+        const allParticles = [...firstPassParticles, ...secondPassParticles];
+        
+        // 5. 색상별로 그룹화 (어두운 색 → 밝은 색)
+        const particlesByColor = new Map<string, ParticleWithColor[]>();
+        
+        for (const particle of allParticles) {
+          const key = rgbToHex(particle.color.r, particle.color.g, particle.color.b);
+          if (!particlesByColor.has(key)) {
+            particlesByColor.set(key, []);
+          }
+          particlesByColor.get(key)!.push(particle);
+        }
+        
+        // 6. 밝기 순 정렬
+        const sortedEntries = Array.from(particlesByColor.entries()).sort((a, b) => {
+          return getLuminance(a[1][0].color) - getLuminance(b[1][0].color);
+        });
+        
+        // 7. SVG 생성 (인접한 파티클 병합)
+        const svgElements: string[] = [];
+        const radius = settings.particleSize.toFixed(1);
+        const mergeDistance = settings.particleSize * 3; // 병합 기준 거리
+        
+        for (const [hexColor, colorParticles] of sortedEntries) {
+          // 같은 색상의 파티클들을 클러스터로 그룹화
+          const clusters = clusterAdjacentParticles(colorParticles, mergeDistance);
+          
+          for (const cluster of clusters) {
+            const pathElement = clusterToPath(cluster, parseFloat(radius));
+            svgElements.push(`<g fill="${hexColor}">${pathElement}</g>`);
+          }
+        }
+        
+        // 8. 고유 색상 추출
+        const uniqueColors = extractUniqueColors(imageData.data, width, height);
+        
+        // 9. 최종 SVG
+        const svgCode = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+  ${svgElements.join('\n  ')}
+</svg>`;
+        
+        const blob = new Blob([svgCode], { type: 'image/svg+xml' });
+        const svgDataUrl = URL.createObjectURL(blob);
+        
+        const processingTime = performance.now() - startTime;
+        
+        resolve({
+          id: image.id,
+          originalImage: image,
+          svgCode,
+          svgDataUrl,
+          colors: uniqueColors.slice(0, 10).map(c => rgbToHex(c.r, c.g, c.b)),
+          processingTime
+        });
+        
+      } catch (error) {
+        reject(error);
+      }
+    };
+    
+    img.onerror = () => {
+      reject(new Error('Failed to load image'));
+    };
+    
+    img.src = image.preview;
+  });
+};
+
+// ============================================
+// SVG 다운로드/복사 유틸리티
+// ============================================
+
+export const downloadSvg = (svgCode: string, originalFileName: string): void => {
+  const blob = new Blob([svgCode], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  const fileName = originalFileName.replace(/\.[^/.]+$/, '.svg');
+  
+  link.href = url;
+  link.download = fileName;
+  link.click();
+  
+  URL.revokeObjectURL(url);
+};
+
+export const copySvgToClipboard = async (svgCode: string): Promise<void> => {
+  try {
+    await navigator.clipboard.writeText(svgCode);
+  } catch (error) {
+    console.error('Failed to copy SVG to clipboard:', error);
+    throw error;
+  }
+};
+</file>
+
+<file path="src/utils/security.ts">
+/**
+ * 보안 유틸리티 함수
+ * XSS, 입력 검증 등 보안 관련 헬퍼 함수들
+ */
+
+/**
+ * HTML 특수문자 이스케이프 (XSS 방지)
+ */
+export const escapeHtml = (str: string): string => {
+  const htmlEntities: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;',
+  };
+  
+  return str.replace(/[&<>"'`=/]/g, char => htmlEntities[char] || char);
+};
+
+/**
+ * SVG 코드 정제 (잠재적 위험 요소 제거)
+ */
+export const sanitizeSvg = (svgCode: string): string => {
+  // script 태그 제거
+  let sanitized = svgCode.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  
+  // on* 이벤트 핸들러 제거
+  sanitized = sanitized.replace(/\s*on\w+\s*=\s*["'][^"']*["']/gi, '');
+  
+  // javascript: URL 제거
+  sanitized = sanitized.replace(/javascript:/gi, '');
+  
+  // data: URL에서 위험한 MIME 타입 제거 (text/html 등)
+  sanitized = sanitized.replace(/data:text\/html/gi, 'data:text/plain');
+  
+  // xlink:href에서 javascript: 제거
+  sanitized = sanitized.replace(/xlink:href\s*=\s*["']javascript:[^"']*["']/gi, '');
+  
+  // foreignObject 제거 (HTML 삽입 가능)
+  sanitized = sanitized.replace(/<foreignObject\b[^<]*(?:(?!<\/foreignObject>)<[^<]*)*<\/foreignObject>/gi, '');
+  
+  return sanitized;
+};
+
+/**
+ * 파일 타입 검증
+ */
+export const validateFileType = (file: File): boolean => {
+  const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
+  return allowedTypes.includes(file.type);
+};
+
+/**
+ * 파일 크기 검증 (10MB 제한)
+ */
+export const validateFileSize = (file: File, maxSizeMB: number = 10): boolean => {
+  const maxSizeBytes = maxSizeMB * 1024 * 1024;
+  return file.size <= maxSizeBytes;
+};
+
+/**
+ * 파일명 정제
+ */
+export const sanitizeFilename = (filename: string): string => {
+  // 경로 구분자 및 위험 문자 제거
+  return filename
+    .replace(/[<>:"/\\|?*]/g, '_')
+    .replace(/\.\./g, '_')
+    .replace(/^\.+/, '_')
+    .substring(0, 255);
+};
+
+/**
+ * URL 유효성 검증
+ */
+export const isValidUrl = (url: string): boolean => {
+  try {
+    const parsed = new URL(url);
+    return ['http:', 'https:', 'blob:'].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+};
+
+/**
+ * 안전한 외부 링크 속성 생성
+ */
+export const safeExternalLinkProps = {
+  target: '_blank',
+  rel: 'noopener noreferrer nofollow',
+};
+
+/**
+ * CSP 메타 태그 생성 (index.html에 추가됨)
+ */
+export const getCSPContent = (): string => {
+  return [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagservices.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "img-src 'self' data: blob: https:",
+    "font-src 'self' https://fonts.gstatic.com",
+    "connect-src 'self' https://pagead2.googlesyndication.com",
+    "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+  ].join('; ');
+};
+
+/**
+ * Rate limiting 구현 (클라이언트 사이드)
+ */
+class RateLimiter {
+  private timestamps: number[] = [];
+  private readonly maxRequests: number;
+  private readonly windowMs: number;
+
+  constructor(maxRequests: number = 10, windowMs: number = 60000) {
+    this.maxRequests = maxRequests;
+    this.windowMs = windowMs;
+  }
+
+  canProceed(): boolean {
+    const now = Date.now();
+    this.timestamps = this.timestamps.filter(t => now - t < this.windowMs);
+    
+    if (this.timestamps.length >= this.maxRequests) {
+      return false;
+    }
+    
+    this.timestamps.push(now);
+    return true;
+  }
+
+  getRemainingTime(): number {
+    if (this.timestamps.length === 0) return 0;
+    const oldest = Math.min(...this.timestamps);
+    return Math.max(0, this.windowMs - (Date.now() - oldest));
+  }
+}
+
+export const conversionRateLimiter = new RateLimiter(20, 60000); // 분당 20회 제한
+</file>
+
+<file path="src/utils/svgToImage.ts">
+/**
+ * SVG를 이미지로 변환하는 유틸리티 함수
+ */
+
+/**
+ * SVG 문자열을 PNG 이미지로 변환
+ */
+export const convertSvgToPng = async (
+  svgCode: string,
+  width: number,
+  height: number,
+  scale: number = 2
+): Promise<Blob> => {
+  return new Promise((resolve, reject) => {
+    try {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      if (!ctx) {
+        throw new Error('Canvas context not available');
+      }
+
+      canvas.width = width * scale;
+      canvas.height = height * scale;
+
+      const img = new Image();
+      const svgBlob = new Blob([svgCode], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+        
+        canvas.toBlob((blob) => {
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error('Failed to create PNG blob'));
+          }
+        }, 'image/png');
+      };
+
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Failed to load SVG'));
+      };
+
+      img.src = url;
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+/**
+ * SVG 문자열을 JPG 이미지로 변환
+ */
+export const convertSvgToJpg = async (
+  svgCode: string,
+  width: number,
+  height: number,
+  quality: number = 0.95,
+  scale: number = 2,
+  backgroundColor: string = '#ffffff'
+): Promise<Blob> => {
+  return new Promise((resolve, reject) => {
+    try {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      if (!ctx) {
+        throw new Error('Canvas context not available');
+      }
+
+      canvas.width = width * scale;
+      canvas.height = height * scale;
+
+      // 흰색 배경 채우기
+      ctx.fillStyle = backgroundColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const img = new Image();
+      const svgBlob = new Blob([svgCode], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+        
+        canvas.toBlob((blob) => {
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error('Failed to create JPG blob'));
+          }
+        }, 'image/jpeg', quality);
+      };
+
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Failed to load SVG'));
+      };
+
+      img.src = url;
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+/**
+ * SVG 문자열을 WEBP 이미지로 변환
+ */
+export const convertSvgToWebp = async (
+  svgCode: string,
+  width: number,
+  height: number,
+  quality: number = 0.95,
+  scale: number = 2,
+  backgroundColor?: string
+): Promise<Blob> => {
+  return new Promise((resolve, reject) => {
+    try {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      if (!ctx) {
+        throw new Error('Canvas context not available');
+      }
+
+      canvas.width = width * scale;
+      canvas.height = height * scale;
+
+      // 배경색이 지정된 경우 채우기
+      if (backgroundColor) {
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      const img = new Image();
+      const svgBlob = new Blob([svgCode], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+        
+        canvas.toBlob((blob) => {
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error('Failed to create WEBP blob'));
+          }
+        }, 'image/webp', quality);
+      };
+
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Failed to load SVG'));
+      };
+
+      img.src = url;
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+/**
+ * Blob을 파일로 다운로드
+ */
+export const downloadBlob = (blob: Blob, filename: string): void => {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+};
+</file>
+
+<file path="tsconfig.app.json">
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"]
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+</file>
+
+<file path="tsconfig.node.json">
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "types": ["node"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["vite.config.ts"]
+}
+</file>
+
+<file path="vercel.json">
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}
+</file>
+
+<file path="public/ads.txt">
+google.com, pub-5903235347710527, DIRECT, f08c47fec0942fa0
+</file>
+
+<file path="public/robots.txt">
+# robots.txt for SVG Converter
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# 크롤링 제외할 경로
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap 위치
+Sitemap: https://jiwonjae-svg.github.io/sitemap.xml
+</file>
+
+<file path="src/components/Dropzone/Dropzone.tsx">
+import React, { useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { Upload, Image, AlertCircle } from 'lucide-react';
+import { useAppStore } from '../../store';
+import { getTranslation } from '../../i18n';
+import { validateFileType, validateFileSize } from '../../utils';
+import toast from 'react-hot-toast';
+import './Dropzone.css';
+
+/**
+ * 이미지 드롭존 컴포넌트
+ * 드래그 앤 드롭 및 클릭으로 이미지 업로드 지원
+ */
+export const Dropzone: React.FC = () => {
+  const { language, conversionMode, addImages } = useAppStore();
+  const t = getTranslation(language);
+
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    const validFiles: File[] = [];
+
+    acceptedFiles.forEach(file => {
+      if (!validateFileType(file)) {
+        toast.error(`${file.name}: ${t.errors.invalidFile}`);
+        return;
+      }
+
+      if (!validateFileSize(file)) {
+        toast.error(`${file.name}: ${t.errors.fileTooLarge}`);
+        return;
+      }
+
+      validFiles.push(file);
+    });
+
+    if (validFiles.length > 0) {
+      addImages(validFiles);
+    }
+  }, [addImages, t.errors]);
+
+  // 변환 모드에 따라 허용 파일 형식 변경
+  const acceptedFileTypes = conversionMode === 'image-to-svg' 
+    ? {
+        'image/png': ['.png'],
+        'image/jpeg': ['.jpg', '.jpeg'],
+        'image/webp': ['.webp'],
+      } as const
+    : {
+        'image/svg+xml': ['.svg'],
+      } as const;
+
+  const { getRootProps, getInputProps, isDragActive, isDragReject } = useDropzone({
+    onDrop,
+    accept: acceptedFileTypes as any,
+    maxSize: 10 * 1024 * 1024, // 10MB
+    multiple: true,
+  });
+
+  return (
+    <div
+      {...getRootProps()}
+      className={`dropzone ${isDragActive ? 'dropzone-active' : ''} ${isDragReject ? 'dropzone-reject' : ''}`}
+    >
+      <input {...getInputProps()} />
+      
+      <div className="dropzone-content">
+        {isDragReject ? (
+          <>
+            <div className="dropzone-icon dropzone-icon-error">
+              <AlertCircle size={48} strokeWidth={1.5} />
+            </div>
+            <p className="dropzone-title">{t.errors.invalidFile}</p>
+          </>
+        ) : isDragActive ? (
+          <>
+            <div className="dropzone-icon dropzone-icon-active">
+              <Image size={48} strokeWidth={1.5} />
+            </div>
+            <p className="dropzone-title">{t.dropzone.dragActive}</p>
+          </>
+        ) : (
+          <>
+            <div className="dropzone-icon">
+              <Upload size={48} strokeWidth={1.5} />
+            </div>
+            <p className="dropzone-title">
+              {conversionMode === 'image-to-svg' ? t.dropzone.title : t.dropzone.titleSvg}
+            </p>
+            <p className="dropzone-subtitle">{t.dropzone.subtitle}</p>
+            <p className="dropzone-formats">
+              {conversionMode === 'image-to-svg' ? t.dropzone.formats : t.dropzone.formatsSvg}
+            </p>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+</file>
+
+<file path="src/components/Footer/Footer.tsx">
+import React from 'react';
+import { Github, ExternalLink } from 'lucide-react';
+import { useAppStore } from '../../store';
+import { getTranslation } from '../../i18n';
+import { safeExternalLinkProps } from '../../utils';
+import './Footer.css';
+
+/**
+ * 푸터 컴포넌트
+ * 개발자 정보, GitHub 링크, 저작권 등
+ */
+export const Footer: React.FC = () => {
+  const { language } = useAppStore();
+  const t = getTranslation(language);
+
+  return (
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-info">
+          <p className="footer-made">
+            {t.footer.madeWith}
+          </p>
+          <p className="footer-developer">
+            <span>{t.footer.developer}:</span>
+            <a
+              href="https://github.com/jiwonjae-svg/img-to-svg-converter"
+              {...safeExternalLinkProps}
+              className="footer-link"
+            >
+              @jiwonjae-svg
+              <ExternalLink size={12} />
+            </a>
+          </p>
+        </div>
+
+        <div className="footer-links">
+          <a
+            href="https://github.com/jiwonjae-svg/img-to-svg-converter"
+            {...safeExternalLinkProps}
+            className="footer-github"
+            aria-label="GitHub Repository"
+          >
+            <Github size={20} />
+            <span>{t.footer.github}</span>
+          </a>
+        </div>
+
+        <div className="footer-copyright">
+          <p>© {new Date().getFullYear()} SVG Converter. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+</file>
+
+<file path="src/components/Header/Header.css">
+.header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.header-title h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.mode-toggle:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+}
+
+.mode-toggle:active {
+  transform: translateY(0);
+}
+
+.mode-label {
+  font-size: 0.875rem;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.language-selector select {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  padding-right: 0.5rem;
+}
+
+.language-selector select option {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-tertiary);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 0 1rem;
+  }
+
+  .header-content {
+    height: 56px;
+    gap: 0.5rem;
+  }
+
+  .header-title h1 {
+    font-size: 1rem;
+  }
+
+  .header-subtitle {
+    display: none;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mode-toggle {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .mode-label {
+    display: none;
+  }
+
+  .language-selector {
+    padding: 0.375rem 0.5rem;
+  }
+
+  .language-selector svg {
+    display: none;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+</file>
+
+<file path="src/components/Header/Header.tsx">
+import React from 'react';
+import { Moon, Sun, Languages, ArrowLeftRight } from 'lucide-react';
+import { useAppStore } from '../../store';
+import { getTranslation } from '../../i18n';
+import type { Language } from '../../types';
+import './Header.css';
+
+/**
+ * 헤더 컴포넌트
+ * 앱 제목, 변환 모드 토글, 테마 토글, 언어 선택 기능 포함
+ */
+export const Header: React.FC = () => {
+  const { theme, toggleTheme, language, setLanguage, conversionMode, toggleConversionMode } = useAppStore();
+  const t = getTranslation(language);
+
+  const languages: { code: Language; label: string }[] = [
+    { code: 'ko', label: t.language.ko },
+    { code: 'en', label: t.language.en },
+    { code: 'ja', label: t.language.ja },
+    { code: 'zh', label: t.language.zh },
+  ];
+
+  return (
+    <header className="header">
+      <div className="header-content">
+        <div className="header-brand">
+          <div className="logo">
+            <svg 
+              viewBox="0 0 40 40" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              className="logo-icon"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="36" height="36" rx="8" fill="url(#gradient)" />
+              <path 
+                d="M12 20C12 16 14 12 20 12C26 12 28 16 28 20C28 24 26 28 20 28C14 28 12 24 12 20Z" 
+                fill="white" 
+                fillOpacity="0.9"
+              />
+              <path 
+                d="M16 20L20 16L24 20L20 24L16 20Z" 
+                fill="url(#gradient)"
+              />
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                  <stop stopColor="#6366f1" />
+                  <stop offset="1" stopColor="#8b5cf6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div className="header-title">
+            <h1>{t.app.title}</h1>
+            <span className="header-subtitle">{t.app.subtitle}</span>
+          </div>
+        </div>
+
+        <div className="header-controls">
+          {/* 변환 모드 토글 */}
+          <button
+            className="mode-toggle"
+            onClick={toggleConversionMode}
+            aria-label="Toggle conversion mode"
+            title={conversionMode === 'image-to-svg' ? t.mode.svgToImage : t.mode.imageToSvg}
+          >
+            <ArrowLeftRight size={18} aria-hidden="true" />
+            <span className="mode-label">
+              {conversionMode === 'image-to-svg' ? t.mode.imageToSvg : t.mode.svgToImage}
+            </span>
+          </button>
+
+          {/* 언어 선택 */}
+          <div className="language-selector">
+            <Languages size={18} aria-hidden="true" />
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as Language)}
+              aria-label="Select language"
+            >
+              {languages.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* 테마 토글 */}
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={theme === 'light' ? t.theme.dark : t.theme.light}
+            title={theme === 'light' ? t.theme.dark : t.theme.light}
+          >
+            {theme === 'light' ? (
+              <Moon size={20} aria-hidden="true" />
+            ) : (
+              <Sun size={20} aria-hidden="true" />
+            )}
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+};
+</file>
+
+<file path="src/components/Results/Results.css">
+.results-section {
+  margin-top: 2rem;
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.results-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.results-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.results-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.result-card {
+  background: var(--bg-secondary);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.result-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+}
+
+.result-tabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.result-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.result-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.result-tab.active {
+  color: var(--primary-color);
+  background: var(--bg-secondary);
+}
+
+.result-content {
+  min-height: 200px;
+}
+
+.result-preview {
+  padding: 1rem;
+}
+
+.preview-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.preview-original,
+.preview-svg {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--bg-tertiary);
+  aspect-ratio: 4/3;
+}
+
+.preview-original img,
+.preview-svg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preview-label {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  z-index: 1;
+}
+
+.result-code {
+  padding: 1rem;
+  overflow: auto;
+  max-height: 300px;
+}
+
+.result-code pre {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  background: var(--bg-tertiary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.result-code code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.result-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+}
+
+.result-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.color-swatches {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.color-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-color);
+}
+
+.color-more {
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  margin-left: 0.25rem;
+}
+
+.result-card-footer {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.result-card-footer .btn {
+  flex: 1;
+}
+
+.download-menu-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.download-menu {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  z-index: 100;
+  min-width: 180px;
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.download-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.download-menu-item:hover {
+  background: var(--bg-tertiary);
+  color: var(--primary-color);
+}
+
+.download-menu-item svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .preview-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .result-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .result-card-footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .result-card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .result-tabs {
+    width: 100%;
+  }
+
+  .result-tab {
+    flex: 1;
+    justify-content: center;
+  }
+}
+</file>
+
+<file path="src/components/Results/Results.tsx">
+import React, { useState } from 'react';
+import { Download, Copy, Check, Trash2, Code, Image, Clock, FileDown } from 'lucide-react';
+import { useAppStore } from '../../store';
+import { getTranslation } from '../../i18n';
+import { 
+  downloadSvg, 
+  copySvgToClipboard, 
+  sanitizeSvg, 
+  escapeHtml,
+  convertSvgToPng,
+  convertSvgToJpg,
+  convertSvgToWebp,
+  downloadBlob
+} from '../../utils';
+import type { ConversionResult } from '../../types';
+import toast from 'react-hot-toast';
+import './Results.css';
+
+/**
+ * 변환 결과 컴포넌트
+ */
+export const Results: React.FC = () => {
+  const { results, removeResult, clearResults, language } = useAppStore();
+  const t = getTranslation(language);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<Record<string, 'preview' | 'code'>>({});
+  const [downloadMenuOpen, setDownloadMenuOpen] = useState<string | null>(null);
+
+  const handleCopy = async (result: ConversionResult) => {
+    try {
+      await copySvgToClipboard(sanitizeSvg(result.svgCode));
+      setCopiedId(result.id);
+      toast.success(t.actions.copied);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch {
+      toast.error('Failed to copy');
+    }
+  };
+
+  const handleDownloadSvg = (result: ConversionResult) => {
+    downloadSvg(sanitizeSvg(result.svgCode), result.originalImage.file.name);
+    setDownloadMenuOpen(null);
+  };
+
+  const handleDownloadPng = async (result: ConversionResult) => {
+    try {
+      const blob = await convertSvgToPng(result.svgCode, 600, 600, 2);
+      const filename = result.originalImage.file.name.replace(/\.[^/.]+$/, '.png');
+      downloadBlob(blob, filename);
+      setDownloadMenuOpen(null);
+      toast.success('PNG downloaded!');
+    } catch (error) {
+      toast.error('Failed to convert to PNG');
+      console.error(error);
+    }
+  };
+
+  const handleDownloadJpg = async (result: ConversionResult) => {
+    try {
+      const blob = await convertSvgToJpg(result.svgCode, 600, 600, 0.95, 2);
+      const filename = result.originalImage.file.name.replace(/\.[^/.]+$/, '.jpg');
+      downloadBlob(blob, filename);
+      setDownloadMenuOpen(null);
+      toast.success('JPG downloaded!');
+    } catch (error) {
+      toast.error('Failed to convert to JPG');
+      console.error(error);
+    }
+  };
+
+  const handleDownloadWebp = async (result: ConversionResult) => {
+    try {
+      const blob = await convertSvgToWebp(result.svgCode, 600, 600, 0.95, 2);
+      const filename = result.originalImage.file.name.replace(/\.[^/.]+$/, '.webp');
+      downloadBlob(blob, filename);
+      setDownloadMenuOpen(null);
+      toast.success('WEBP downloaded!');
+    } catch (error) {
+      toast.error('Failed to convert to WEBP');
+      console.error(error);
+    }
+  };
+
+  const handleDownloadAll = () => {
+    results.forEach((result) => {
+      downloadSvg(sanitizeSvg(result.svgCode), result.originalImage.file.name);
+    });
+  };
+
+  const getActiveTab = (id: string): 'preview' | 'code' => {
+    return activeTab[id] || 'preview';
+  };
+
+  const toggleTab = (id: string, tab: 'preview' | 'code') => {
+    setActiveTab((prev) => ({ ...prev, [id]: tab }));
+  };
+
+  if (results.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="results-section">
+      <div className="results-header">
+        <h2 className="results-title">{t.results.title}</h2>
+        <div className="results-actions">
+          {results.length > 1 && (
+            <button
+              className="btn btn-secondary btn-sm"
+              onClick={handleDownloadAll}
+            >
+              <Download size={14} />
+              {t.actions.downloadAll}
+            </button>
+          )}
+          <button
+            className="btn btn-text btn-sm"
+            onClick={clearResults}
+          >
+            <Trash2 size={14} />
+            {t.actions.clear}
+          </button>
+        </div>
+      </div>
+
+      <div className="results-grid">
+        {results.map((result) => (
+          <div key={result.id} className="result-card">
+            <div className="result-card-header">
+              <div className="result-tabs">
+                <button
+                  className={`result-tab ${getActiveTab(result.id) === 'preview' ? 'active' : ''}`}
+                  onClick={() => toggleTab(result.id, 'preview')}
+                >
+                  <Image size={14} />
+                  {t.results.preview}
+                </button>
+                <button
+                  className={`result-tab ${getActiveTab(result.id) === 'code' ? 'active' : ''}`}
+                  onClick={() => toggleTab(result.id, 'code')}
+                >
+                  <Code size={14} />
+                  {t.results.svgCode}
+                </button>
+              </div>
+              <button
+                className="btn btn-icon btn-sm"
+                onClick={() => removeResult(result.id)}
+                aria-label={t.actions.remove}
+              >
+                <Trash2 size={14} />
+              </button>
+            </div>
+
+            <div className="result-content">
+              {getActiveTab(result.id) === 'preview' ? (
+                <div className="result-preview">
+                  <div className="preview-comparison">
+                    <div className="preview-original">
+                      <span className="preview-label">Original</span>
+                      <img
+                        src={result.originalImage.preview}
+                        alt="Original"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="preview-svg">
+                      <span className="preview-label">SVG</span>
+                      <img
+                        src={result.svgDataUrl}
+                        alt="SVG Result"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="result-code">
+                  <pre>
+                    <code>{escapeHtml(result.svgCode)}</code>
+                  </pre>
+                </div>
+              )}
+            </div>
+
+            <div className="result-meta">
+              <div className="result-meta-item">
+                <Clock size={14} />
+                <span>{result.processingTime.toFixed(2)}{t.results.seconds}</span>
+              </div>
+            </div>
+
+            <div className="result-card-footer">
+              <button
+                className="btn btn-secondary"
+                onClick={() => handleCopy(result)}
+              >
+                {copiedId === result.id ? (
+                  <>
+                    <Check size={16} />
+                    {t.actions.copied}
+                  </>
+                ) : (
+                  <>
+                    <Copy size={16} />
+                    {t.actions.copy}
+                  </>
+                )}
+              </button>
+              
+              <div className="download-menu-wrapper">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setDownloadMenuOpen(downloadMenuOpen === result.id ? null : result.id)}
+                >
+                  <Download size={16} />
+                  {t.actions.download}
+                </button>
+                
+                {downloadMenuOpen === result.id && (
+                  <div className="download-menu">
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadSvg(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadSvg}
+                    </button>
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadPng(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadPng}
+                    </button>
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadJpg(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadJpg}
+                    </button>
+                    <button
+                      className="download-menu-item"
+                      onClick={() => handleDownloadWebp(result)}
+                    >
+                      <FileDown size={14} />
+                      {t.actions.downloadWebp}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+</file>
+
+<file path="src/store/useAppStore.ts">
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import type { 
+  AppState, 
+  ConversionSettings, 
+  ConversionResult, 
+  UploadedImage, 
+  ImageStatus,
+  Theme,
+  Language,
+  ConversionMode
+} from '../types';
+import { detectBrowserLanguage, getTranslation } from '../i18n';
+
+/**
+ * 기본 변환 설정 (파티클 기반)
+ */
+const defaultSettings: ConversionSettings = {
+  colorCount: 8,
+  particleSize: 2,
+  particleDensity: 50,
+  blur: 1,
+};
+
+/**
+ * 고유 ID 생성
+ */
+const generateId = (): string => {
+  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+};
+
+/**
+ * 시스템 테마 감지
+ */
+const detectSystemTheme = (): Theme => {
+  if (typeof window !== 'undefined' && window.matchMedia) {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  return 'light';
+};
+
+/**
+ * 전역 상태 스토어
+ */
+export const useAppStore = create<AppState>()(
+  persist(
+    (set, get) => ({
+      // 테마 상태
+      theme: detectSystemTheme(),
+      setTheme: (theme: Theme) => {
+        set({ theme });
+        document.documentElement.setAttribute('data-theme', theme);
+      },
+      toggleTheme: () => {
+        const newTheme = get().theme === 'light' ? 'dark' : 'light';
+        get().setTheme(newTheme);
+      },
+      
+      // 언어 상태
+      language: detectBrowserLanguage(),
+      setLanguage: (language: Language) => set({ language }),
+      
+      // 변환 모드
+      conversionMode: 'image-to-svg',
+      setConversionMode: (mode: ConversionMode) => set({ conversionMode: mode }),
+      toggleConversionMode: () => {
+        set((state) => ({
+          conversionMode: state.conversionMode === 'image-to-svg' ? 'svg-to-image' : 'image-to-svg'
+        }));
+      },
+      
+      // 이미지 상태
+      images: [],
+      addImages: (files: File[]) => {
+        const newImages: UploadedImage[] = files.map(file => ({
+          id: generateId(),
+          file,
+          preview: URL.createObjectURL(file),
+          status: 'idle' as ImageStatus,
+        }));
+        set(state => ({ images: [...state.images, ...newImages] }));
+      },
+      removeImage: (id: string) => {
+        set(state => {
+          const imageToRemove = state.images.find(img => img.id === id);
+          if (imageToRemove) {
+            URL.revokeObjectURL(imageToRemove.preview);
+          }
+          return { images: state.images.filter(img => img.id !== id) };
+        });
+      },
+      clearImages: () => {
+        const { images } = get();
+        images.forEach(img => URL.revokeObjectURL(img.preview));
+        set({ images: [] });
+      },
+      updateImageStatus: (id: string, status: ImageStatus, error?: string) => {
+        set(state => ({
+          images: state.images.map(img => 
+            img.id === id ? { ...img, status, error } : img
+          ),
+        }));
+      },
+      
+      // 설정 상태
+      settings: defaultSettings,
+      updateSettings: (newSettings: Partial<ConversionSettings>) => {
+        set(state => ({
+          settings: { ...state.settings, ...newSettings },
+        }));
+      },
+      resetSettings: () => set({ settings: defaultSettings }),
+      
+      // 결과 상태
+      results: [],
+      addResult: (result: ConversionResult) => {
+        set(state => ({ results: [result, ...state.results] }));
+      },
+      removeResult: (id: string) => {
+        set(state => ({ results: state.results.filter(r => r.id !== id) }));
+      },
+      clearResults: () => set({ results: [] }),
+      
+      // 처리 상태
+      isProcessing: false,
+      setProcessing: (processing: boolean) => set({ isProcessing: processing }),
+    }),
+    {
+      name: 'svg-converter-storage',
+      partialize: (state) => ({
+        theme: state.theme,
+        language: state.language,
+        settings: state.settings,
+      }),
+    }
+  )
+);
+
+/**
+ * 번역 훅
+ */
+export const useTranslation = () => {
+  const { language } = useAppStore();
+  return getTranslation(language);
+};
+</file>
+
+<file path="src/utils/index.ts">
+export { convertImageToSvg, downloadSvg, copySvgToClipboard } from './imageConverter';
+export { convertSvgToPng, convertSvgToJpg, convertSvgToWebp, downloadBlob } from './svgToImage';
+export { 
+  escapeHtml, 
+  sanitizeSvg, 
+  validateFileType, 
+  validateFileSize, 
+  sanitizeFilename,
+  isValidUrl,
+  safeExternalLinkProps,
+  conversionRateLimiter 
+} from './security';
+</file>
+
+<file path="vite.config.ts">
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  
+  // GitHub Pages 배포를 위한 base 경로
+  // jiwonjae-svg.github.io 저장소는 최상위 도메인에 배포
+  base: '/',
+  
+  build: {
+    // 빌드 최적화
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    // 청크 분할
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          utils: ['zustand', 'react-dropzone', 'react-hot-toast'],
+        },
+      },
+    },
+  },
+  
+  // 개발 서버 설정
+  server: {
+    port: 3000,
+    open: true,
+  },
+})
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <!-- 보안 헤더 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagservices.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://pagead2.googlesyndication.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; object-src 'none'; base-uri 'self'; form-action 'self';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    <!-- 뷰포트 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    
+    <!-- SEO 메타 태그 -->
+    <title>SVG Converter - Image to Vector</title>
+    <meta name="description" content="Convert PNG, JPG, WEBP images to high-quality SVG vector files. Free online tool with no registration required." />
+    <meta name="keywords" content="SVG, converter, image to vector, PNG to SVG, JPG to SVG, WEBP to SVG, vectorize, image converter" />
+    <meta name="author" content="SVG Converter" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SVG Converter - Image to Vector" />
+    <meta property="og:description" content="Convert PNG, JPG, WEBP images to high-quality SVG vector files" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SVG Converter - Image to Vector" />
+    <meta name="twitter:description" content="Convert PNG, JPG, WEBP images to high-quality SVG vector files" />
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>Please enable JavaScript to use this application.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="public/sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://jiwonjae-svg.github.io/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+</file>
+
+<file path="src/types/index.ts">
+/**
+ * 애플리케이션 전역 타입 정의
+ */
+
+// 지원 언어 타입
+export type Language = 'ko' | 'en' | 'ja' | 'zh';
+
+// 테마 타입
+export type Theme = 'light' | 'dark';
+
+// 변환 모드 타입
+export type ConversionMode = 'image-to-svg' | 'svg-to-image';
+
+// 이미지 파일 상태
+export type ImageStatus = 'idle' | 'processing' | 'completed' | 'error';
+
+// 업로드된 이미지 정보
+export interface UploadedImage {
+  id: string;
+  file: File;
+  preview: string;
+  status: ImageStatus;
+  error?: string;
+}
+
+// 변환 설정 (파티클 기반)
+export interface ConversionSettings {
+  colorCount: number;        // 색상 수 (2-32)
+  particleSize: number;      // 원 크기 (1-10)
+  particleDensity: number;   // 샘플링 밀도 (1-100%)
+  blur: number;              // 블러 강도 (0-5)
+}
+
+// 변환 결과
+export interface ConversionResult {
+  id: string;
+  originalImage: UploadedImage;
+  svgCode: string;
+  svgDataUrl: string;
+  colors: string[];
+  processingTime: number;
+}
+
+// 앱 상태
+export interface AppState {
+  // 테마
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
+  
+  // 언어
+  language: Language;
+  setLanguage: (language: Language) => void;
+  
+  // 변환 모드
+  conversionMode: ConversionMode;
+  setConversionMode: (mode: ConversionMode) => void;
+  toggleConversionMode: () => void;
+  
+  // 이미지
+  images: UploadedImage[];
+  addImages: (files: File[]) => void;
+  removeImage: (id: string) => void;
+  clearImages: () => void;
+  updateImageStatus: (id: string, status: ImageStatus, error?: string) => void;
+  
+  // 설정
+  settings: ConversionSettings;
+  updateSettings: (settings: Partial<ConversionSettings>) => void;
+  resetSettings: () => void;
+  
+  // 결과
+  results: ConversionResult[];
+  addResult: (result: ConversionResult) => void;
+  removeResult: (id: string) => void;
+  clearResults: () => void;
+  
+  // 처리 상태
+  isProcessing: boolean;
+  setProcessing: (processing: boolean) => void;
+}
+
+// 번역 키 타입
+export interface Translations {
+  app: {
+    title: string;
+    subtitle: string;
+    description: string;
+    descriptionSvgToImage: string;
+  };
+  mode: {
+    imageToSvg: string;
+    svgToImage: string;
+  };
+  dropzone: {
+    title: string;
+    titleSvg: string;
+    subtitle: string;
+    dragActive: string;
+    formats: string;
+    formatsSvg: string;
+  };
+  settings: {
+    title: string;
+    colorCount: string;
+    colorCountDesc: string;
+    particleSize: string;
+    particleSizeDesc: string;
+    particleDensity: string;
+    particleDensityDesc: string;
+    blur: string;
+    blurDesc: string;
+    reset: string;
+  };
+  actions: {
+    convert: string;
+    converting: string;
+    download: string;
+    downloadAll: string;
+    downloadSvg: string;
+    downloadPng: string;
+    downloadJpg: string;
+    downloadWebp: string;
+    copy: string;
+    copied: string;
+    clear: string;
+    remove: string;
+  };
+  results: {
+    title: string;
+    noResults: string;
+    svgCode: string;
+    preview: string;
+    colors: string;
+    processingTime: string;
+    seconds: string;
+  };
+  errors: {
+    invalidFile: string;
+    conversionFailed: string;
+    fileTooLarge: string;
+    noImages: string;
+  };
+  footer: {
+    developer: string;
+    github: string;
+    madeWith: string;
+  };
+  theme: {
+    light: string;
+    dark: string;
+  };
+  language: {
+    ko: string;
+    en: string;
+    ja: string;
+    zh: string;
+  };
+}
+</file>
+
+<file path="DEPLOYMENT.md">
+# Vercel 배포 가이드
+
+## 🚀 Vercel 배포 방법
+
+### 방법 1: Vercel 대시보드에서 배포 (추천)
+
+1. **Vercel 계정 생성**
+   - https://vercel.com 접속
+   - GitHub 계정으로 로그인
+
+2. **New Project 생성**
+   - "Add New..." → "Project" 클릭
+   - GitHub 저장소 검색: `jiwonjae-svg/jiwonjae-svg.github.io`
+   - "Import" 클릭
+
+3. **프로젝트 설정**
+   - Framework Preset: **Vite** (자동 감지됨)
+   - Build Command: `npm run build` (자동 설정)
+   - Output Directory: `dist` (자동 설정)
+   - Install Command: `npm install` (자동 설정)
+
+4. **환경 변수 설정 (선택사항)**
+   - AdSense용 환경 변수는 나중에 추가 가능
+
+5. **Deploy 클릭**
+   - 2-3분 후 배포 완료
+   - 자동으로 URL 생성: `https://your-project.vercel.app`
+
+6. **커스텀 도메인 설정 (선택사항)**
+   - Settings → Domains
+   - 원하는 도메인 추가
+
+### 방법 2: Vercel CLI로 배포
+
+```bash
+# Vercel CLI 설치
+npm i -g vercel
+
+# 로그인
+vercel login
+
+# 첫 배포 (설정)
+vercel
+
+# 프로덕션 배포
+vercel --prod
+```
+
+---
+
+## 🔄 자동 배포 설정
+
+Vercel이 GitHub와 연동되면:
+- ✅ **main 브랜치** push → 자동 프로덕션 배포
+- ✅ **다른 브랜치** push → 미리보기 배포 생성
+- ✅ **Pull Request** → 미리보기 URL 자동 생성
+
+---
+
+## 📦 설정 파일 (이미 완료됨)
+
+### vercel.json
+✅ 이미 생성됨 - SPA 라우팅, 캐싱, 보안 헤더 설정
+
+### .vercelignore
+✅ 이미 생성됨 - 배포 시 제외할 파일 지정
+
+---
+
+## 💰 Google AdSense 설정
+
+### 1. AdSense 계정에 Vercel 도메인 등록
+
+**배포 완료 후:**
+- Vercel에서 배포된 URL 확인 (예: `https://img-to-svg-converter.vercel.app`)
+- AdSense 대시보드 → 사이트 → 새 사이트 추가
+- URL 입력: `https://img-to-svg-converter.vercel.app`
+
+**또는 커스텀 도메인 사용:**
+- 자신의 도메인 연결 (예: `svgconverter.com`)
+- AdSense에 커스텀 도메인 등록
+
+1. **AdSense 가입**
+   - https://www.google.com/adsense 방문
+   - Google 계정으로 로그인
+   - 사이트 URL 입력 (예: https://yourusername.github.io/img-to-svg-converter)
+
+2. **승인 대기**
+   - 사이트 콘텐츠가 충분해야 함 (최소 10-20개 이상의 페이지 권장)
+   - 오리지널 콘텐츠 필수
+   - AdSense 정책 준수 확인
+   - 승인까지 보통 1-2주 소요
+
+### 2. AdSense 코드 삽입
+
+#### index.html에 AdSense 스크립트 추가
+```html
+<!-- 승인 후 주석 해제하고 실제 클라이언트 ID로 교체 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" 
+        crossorigin="anonymous"></script>
+```
+
+**클라이언트 ID 찾는 방법:**
+- AdSense 대시보드 → 계정 → 계정 정보
+- "게시자 ID"가 클라이언트 ID (ca-pub-으로 시작하는 16자리 숫자)
+
+### 3. 광고 단위 생성 및 코드 얻기
+
+1. **AdSense 대시보드 접속**
+   - 좌측 메뉴 → "광고" → "광고 단위별"
+
+2. **새 광고 단위 만들기**
+   - "디스플레이 광고" 선택 (가로형 배너)
+   - 이름 지정: "상단 배너", "중간 광고", "하단 배너" 등
+   - 크기: "반응형" 선택 (권장)
+   - 저장 후 코드 복사
+
+3. **광고 슬롯 ID 확인**
+   - 생성된 코드에서 `data-ad-slot="1234567890"` 부분이 슬롯 ID
+   - 각 광고 단위마다 고유한 슬롯 ID가 할당됨
+
+### 4. App.tsx에 광고 코드 적용
+
+현재 App.tsx에 이미 3개의 광고 위치가 설정되어 있습니다:
+
+```tsx
+{/* 상단 광고 */}
+<div className="ad-container">
+  <ins className="adsbygoogle"
+    style={{ display: 'block' }}
+    data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"  // ← 여기에 실제 클라이언트 ID
+    data-ad-slot="1234567890"                  // ← 여기에 실제 슬롯 ID
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+</div>
+
+{/* 중간 광고 (인피드형) */}
+<div className="ad-container">
+  <ins className="adsbygoogle"
+    style={{ display: 'block' }}
+    data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"  // ← 동일한 클라이언트 ID
+    data-ad-slot="0987654321"                  // ← 다른 슬롯 ID
+    data-ad-format="fluid"
+    data-ad-layout-key="-fb+5w+4e-db+86"></ins>
+</div>
+
+{/* 하단 광고 */}
+<div className="ad-container">
+  <ins className="adsbygoogle"
+    style={{ display: 'block' }}
+    data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"  // ← 동일한 클라이언트 ID
+    data-ad-slot="1122334455"                  // ← 또 다른 슬롯 ID
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+</div>
+```
+
+**각 광고 위치에 맞는 슬롯 ID를 교체하세요!**
+
+### 5. 광고 형식 종류
+
+#### 디스플레이 광고 (Display Ads)
+```html
+<ins class="adsbygoogle"
+  data-ad-format="auto"           <!-- 자동 크기 조절 -->
+  data-full-width-responsive="true"></ins>
+```
+- 가장 일반적인 배너 형태
+- 반응형으로 화면 크기에 맞게 조절됨
+
+#### 인피드 광고 (In-feed Ads)
+```html
+<ins class="adsbygoogle"
+  data-ad-format="fluid"
+  data-ad-layout-key="-fb+5w+4e-db+86"></ins>
+```
+- 콘텐츠 사이에 자연스럽게 삽입
+- 피드 형태의 리스트에 적합
+
+#### 인아티클 광고 (In-article Ads)
+```html
+<ins class="adsbygoogle"
+  data-ad-format="fluid"
+  data-ad-layout="in-article"></ins>
+```
+- 긴 텍스트 콘텐츠 중간에 배치
+- 읽는 흐름을 방해하지 않음
+
+### 6. 광고 위치 권장사항
+
+✅ **효과적인 위치:**
+- 페이지 상단 (첫 화면에 보이는 위치)
+- 콘텐츠 중간 (자연스러운 휴식 지점)
+- 사이드바 (데스크톱)
+- 콘텐츠 하단 (관련 콘텐츠와 함께)
+
+❌ **피해야 할 위치:**
+- 중요한 버튼 근처 (실수 클릭 유도)
+- 너무 많은 광고 (사용자 경험 저하)
+- 헤더/네비게이션 바로 아래
+
+### 7. AdSense 정책 준수사항
+
+⚠️ **반드시 준수해야 할 규칙:**
+
+1. **클릭 유도 금지**
+   - "광고를 클릭해주세요" 등의 문구 금지
+   - 광고를 콘텐츠로 위장 금지
+
+2. **성인/불법 콘텐츠 금지**
+   - 폭력, 성인물, 저작권 침해 콘텐츠 불가
+
+3. **자가 클릭 금지**
+   - 본인이 자신의 광고 클릭 금지
+   - 친구/가족에게 클릭 유도 금지
+
+4. **광고 개수 제한**
+   - 페이지당 광고 3개 권장 (현재 설정)
+   - 너무 많으면 정책 위반
+
+5. **트래픽 조작 금지**
+   - 봇, 자동 새로고침 금지
+   - 허위 트래픽 생성 금지
+
+---
+
+## 🚀 배포 방법
+
+### 방법 1: GitHub Actions (권장)
+
+1. **GitHub Pages 활성화**
+   - GitHub 레포지토리 → Settings → Pages
+   - Source: "GitHub Actions" 선택
+
+2. **코드 푸시**
+   ```bash
+   git add .
+   git commit -m "Setup deployment with AdSense"
+   git push origin main
+   ```
+
+3. **자동 배포**
+   - `.github/workflows/deploy.yml`이 자동으로 실행됨
+   - Actions 탭에서 진행 상황 확인
+
+### 방법 2: gh-pages 패키지
+
+```bash
+# 빌드 및 배포
+npm run deploy
+```
+
+---
+
+## 📋 배포 후 확인사항
+
+### 1. 사이트 접속 확인
+- https://yourusername.github.io/img-to-svg-converter/
+- 모든 페이지가 정상 작동하는지 확인
+
+### 2. 광고 표시 확인
+- 개발자 도구(F12) → Console 탭에서 에러 확인
+- 광고가 로드되는지 확인 (처음에는 빈 공간일 수 있음)
+- AdSense에서 승인 완료 시 1-2일 내 광고 표시
+
+### 3. SEO 설정
+- Google Search Console에 sitemap.xml 제출
+- robots.txt 접근 가능한지 확인
+- 메타 태그 검증 (Open Graph, Twitter Card)
+
+### 4. 성능 테스트
+- Lighthouse로 성능 점수 확인
+- 모바일/데스크톱 반응형 확인
+- 광고 로드로 인한 성능 저하 체크
+
+---
+
+## 💡 AdSense 수익 최적화 팁
+
+1. **트래픽 증가**
+   - 고품질 콘텐츠 작성
+   - SEO 최적화
+   - 소셜 미디어 공유
+
+2. **광고 배치 최적화**
+   - A/B 테스팅으로 최적 위치 찾기
+   - 클릭률(CTR) 모니터링
+   - 계절/이벤트에 따라 조정
+
+3. **사용자 경험 유지**
+   - 광고와 콘텐츠 균형 유지
+   - 로딩 속도 최적화
+   - 모바일 친화적 디자인
+
+---
+
+## 🔧 커스텀 도메인 설정 (선택사항)
+
+1. **CNAME 파일 생성**
+   ```
+   public/CNAME
+   ```
+   내용:
+   ```
+   yourdomain.com
+   ```
+
+2. **DNS 설정**
+   - A 레코드 추가:
+     ```
+     185.199.108.153
+     185.199.109.153
+     185.199.110.153
+     185.199.111.153
+     ```
+   - CNAME 레코드: `www` → `yourusername.github.io`
+
+3. **GitHub 설정**
+   - Settings → Pages → Custom domain에 도메인 입력
+   - "Enforce HTTPS" 체크
+
+---
+
+## 📊 Google Analytics 추가 (선택사항)
+
+### Analytics 4 설정
+
+index.html에 추가:
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+**Analytics와 AdSense 연동:**
+- AdSense 대시보드 → 계정 → 설정
+- Google Analytics 연결하여 상세한 트래픽 분석 가능
+
+---
+
+## 🐛 트러블슈팅
+
+### 광고가 표시되지 않음
+
+**원인 1: 승인 대기 중**
+- AdSense 계정이 아직 승인되지 않음
+- 해결: 승인 이메일을 기다리거나 승인 상태 확인
+
+**원인 2: 클라이언트 ID 오류**
+- `ca-pub-XXXXXXXXXXXXXXXX`가 실제 ID로 교체되지 않음
+- 해결: AdSense 대시보드에서 정확한 ID 복사
+
+**원인 3: 슬롯 ID 오류**
+- `data-ad-slot` 값이 잘못됨
+- 해결: 각 광고 단위의 정확한 슬롯 ID 확인
+
+**원인 4: CSP 정책 차단**
+- Content Security Policy에서 AdSense 도메인 차단
+- 해결: index.html의 CSP 메타 태그 확인 (이미 설정됨)
+
+**원인 5: 광고 차단기**
+- 브라우저 확장 프로그램이 광고 차단 중
+- 해결: 시크릿 모드나 다른 브라우저로 테스트
+
+### 광고 승인이 계속 거부됨
+
+**체크리스트:**
+- [ ] 사이트에 충분한 콘텐츠가 있는가? (10개 이상 페이지)
+- [ ] 오리지널 콘텐츠인가? (복사/붙여넣기 X)
+- [ ] 금지된 콘텐츠가 없는가?
+- [ ] 사이트가 6개월 이상 운영되었는가?
+- [ ] 트래픽이 있는가? (일 방문자 100명 이상 권장)
+
+### 404 오류
+
+- `base` 경로가 레포지토리 이름과 일치하는지 확인
+- `.nojekyll` 파일이 public 폴더에 있는지 확인
+
+### 빌드 실패
+
+- Node.js 버전 확인 (20 이상 권장)
+- `npm ci`로 의존성 재설치
+
+---
+
+## 📱 PWA 기능
+
+manifest.json이 설정되어 있어 PWA로 설치 가능합니다.
+
+## 🔒 보안
+
+현재 설정된 보안 헤더:
+- Content Security Policy (CSP) - AdSense 도메인 포함
+- X-Content-Type-Options
+- X-Frame-Options
+- X-XSS-Protection
+- Referrer Policy
+</file>
+
+<file path="package.json">
+{
+  "name": "img-to-svg-converter",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.562.0",
+    "potrace": "^2.1.8",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-dropzone": "^14.3.8",
+    "react-hot-toast": "^2.6.0",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.5.0",
+    "terser": "^5.44.1",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
+  }
+}
+</file>
+
+<file path="src/App.tsx">
+import React, { useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { Sparkles } from 'lucide-react';
+import { 
+  Header, 
+  Footer, 
+  Dropzone, 
+  ImageList, 
+  Settings, 
+  Results 
+} from './components';
+import { useAppStore } from './store';
+import { getTranslation } from './i18n';
+import { convertImageToSvg, conversionRateLimiter } from './utils';
+import toast from 'react-hot-toast';
+import './App.css';
+
+/**
+ * 메인 애플리케이션 컴포넌트
+ */
+const App: React.FC = () => {
+  const { 
+    theme, 
+    language,
+    conversionMode,
+    images, 
+    settings,
+    isProcessing,
+    setProcessing,
+    updateImageStatus,
+    addResult 
+  } = useAppStore();
+  
+  const t = getTranslation(language);
+
+  // 테마 적용
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  // 변환 처리
+  const handleConvert = async () => {
+    const pendingImages = images.filter(img => img.status === 'idle');
+    
+    if (pendingImages.length === 0) {
+      toast.error(t.errors.noImages);
+      return;
+    }
+
+    // Rate limiting 체크
+    if (!conversionRateLimiter.canProceed()) {
+      toast.error('Too many requests. Please wait a moment.');
+      return;
+    }
+
+    setProcessing(true);
+
+    for (const image of pendingImages) {
+      try {
+        updateImageStatus(image.id, 'processing');
+        
+        const result = await convertImageToSvg(image, settings);
+        addResult(result);
+        
+        updateImageStatus(image.id, 'completed');
+      } catch (error) {
+        console.error('Conversion error:', error);
+        updateImageStatus(image.id, 'error', t.errors.conversionFailed);
+        toast.error(`${image.file.name}: ${t.errors.conversionFailed}`);
+      }
+    }
+
+    setProcessing(false);
+    toast.success('Conversion completed!');
+  };
+
+  const pendingCount = images.filter(img => img.status === 'idle').length;
+
+  return (
+    <div className="app">
+      <Header />
+      
+      <main className="main">
+        <div className="container">
+          {/* 히어로 섹션 */}
+          <section className="hero">
+            <h2 className="hero-title">{t.app.title}</h2>
+            <p className="hero-description">
+              {conversionMode === 'image-to-svg' ? t.app.description : t.app.descriptionSvgToImage}
+            </p>
+          </section>
+
+          {/* 업로드 섹션 */}
+          <section className="upload-section">
+            <Dropzone />
+            <ImageList />
+          </section>
+
+          {/* 설정 섹션 (Image to SVG 모드에서만 표시) */}
+          {conversionMode === 'image-to-svg' && (
+            <section className="settings-section">
+              <Settings />
+            </section>
+          )}
+
+          {/* 변환 버튼 */}
+          <section className="convert-section">
+            <button
+              className="btn btn-primary btn-lg btn-convert"
+              onClick={handleConvert}
+              disabled={isProcessing || pendingCount === 0}
+            >
+              {isProcessing ? (
+                <>
+                  <div className="spinner spinner-white" />
+                  {t.actions.converting}
+                </>
+              ) : (
+                <>
+                  <Sparkles size={20} />
+                  {t.actions.convert}
+                  {pendingCount > 0 && (
+                    <span className="btn-badge">{pendingCount}</span>
+                  )}
+                </>
+              )}
+            </button>
+          </section>
+
+          {/* 결과 섹션 */}
+          <Results />
+        </div>
+      </main>
+
+      <Footer />
+
+      {/* 토스트 알림 */}
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: 'var(--bg-secondary)',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '0.5rem',
+          },
+        }}
+      />
+    </div>
+  );
+};
+
+export default App;
+</file>
+
+<file path="src/i18n/en.ts">
+import type { Translations } from '../types';
+
+export const en: Translations = {
+  app: {
+    title: 'SVG Converter',
+    subtitle: 'Image to Vector',
+    description: 'Convert PNG, JPG, WEBP images to high-quality SVG vector files',
+    descriptionSvgToImage: 'Convert SVG files to PNG, JPG, WEBP images',
+  },
+  mode: {
+    imageToSvg: 'Image to SVG',
+    svgToImage: 'SVG to Image',
+  },
+  dropzone: {
+    title: 'Drop images here',
+    titleSvg: 'Drop SVG files here',
+    subtitle: 'or click to select files',
+    dragActive: 'Drop the files!',
+    formats: 'Supported formats: PNG, JPG, WEBP (max 10MB)',
+    formatsSvg: 'Supported formats: SVG (max 10MB)',
+  },
+  settings: {
+    title: 'Conversion Settings',
+    colorCount: 'Color Count',
+    colorCountDesc: 'Number of colors in output SVG (2-32)',
+    particleSize: 'Particle Size',
+    particleSizeDesc: 'Circle radius (1-10)',
+    particleDensity: 'Particle Density',
+    particleDensityDesc: 'Sampling density (10-100%)',
+    blur: 'Blur',
+    blurDesc: 'Blur strength for noise reduction',
+    reset: 'Reset Settings',
+  },
+  actions: {
+    convert: 'Convert',
+    converting: 'Converting...',
+    download: 'Download',
+    downloadAll: 'Download All',
+    downloadSvg: 'Download SVG',
+    downloadPng: 'Download PNG',
+    downloadJpg: 'Download JPG',
+    downloadWebp: 'Download WEBP',
+    copy: 'Copy',
+    copied: 'Copied!',
+    clear: 'Clear All',
+    remove: 'Remove',
+  },
+  results: {
+    title: 'Conversion Results',
+    noResults: 'No converted images',
+    svgCode: 'SVG Code',
+    preview: 'Preview',
+    colors: 'Extracted Colors',
+    processingTime: 'Processing Time',
+    seconds: 'sec',
+  },
+  errors: {
+    invalidFile: 'Unsupported file format',
+    conversionFailed: 'Conversion failed',
+    fileTooLarge: 'File size too large (max 10MB)',
+    noImages: 'Please add images to convert',
+  },
+  footer: {
+    developer: 'Developer',
+    github: 'GitHub',
+    madeWith: 'Made with ❤️',
+  },
+  theme: {
+    light: 'Light Mode',
+    dark: 'Dark Mode',
+  },
+  language: {
+    ko: '한국어',
+    en: 'English',
+    ja: '日本語',
+    zh: '中文',
+  },
+};
+</file>
+
+<file path="src/i18n/ja.ts">
+import type { Translations } from '../types';
+
+export const ja: Translations = {
+  app: {
+    title: 'SVG変換ツール',
+    subtitle: '画像をベクターに',
+    description: 'PNG、JPG、WEBP画像を高品質なSVGベクターファイルに変換します',
+    descriptionSvgToImage: 'SVGファイルをPNG、JPG、WEBP画像に変換します',
+  },
+  mode: {
+    imageToSvg: '画像からSVGへ',
+    svgToImage: 'SVGから画像へ',
+  },
+  dropzone: {
+    title: '画像をここにドロップ',
+    titleSvg: 'SVGファイルをここにドロップ',
+    subtitle: 'またはクリックしてファイルを選択',
+    dragActive: 'ファイルをドロップ！',
+    formats: '対応形式：PNG、JPG、WEBP（最大10MB）',
+    formatsSvg: '対応形式：SVG（最大10MB）',
+  },
+  settings: {
+    title: '変換設定',
+    colorCount: '色の数',
+    colorCountDesc: '出力SVGの色数（2-32）',
+    particleSize: 'パーティクルサイズ',
+    particleSizeDesc: '円の半径（1-10）',
+    particleDensity: 'パーティクル密度',
+    particleDensityDesc: 'サンプリング密度（10-100%）',
+    blur: 'ぼかし',
+    blurDesc: 'ノイズ除去のためのぼかし強度',
+    reset: '設定をリセット',
+  },
+  actions: {
+    convert: '変換',
+    converting: '変換中...',
+    download: 'ダウンロード',
+    downloadAll: '全てダウンロード',
+    downloadSvg: 'SVGダウンロード',
+    downloadPng: 'PNGダウンロード',
+    downloadJpg: 'JPGダウンロード',
+    downloadWebp: 'WEBPダウンロード',
+    copy: 'コピー',
+    copied: 'コピー完了！',
+    clear: '全て削除',
+    remove: '削除',
+  },
+  results: {
+    title: '変換結果',
+    noResults: '変換された画像はありません',
+    svgCode: 'SVGコード',
+    preview: 'プレビュー',
+    colors: '抽出された色',
+    processingTime: '処理時間',
+    seconds: '秒',
+  },
+  errors: {
+    invalidFile: 'サポートされていないファイル形式です',
+    conversionFailed: '変換に失敗しました',
+    fileTooLarge: 'ファイルサイズが大きすぎます（最大10MB）',
+    noImages: '変換する画像を追加してください',
+  },
+  footer: {
+    developer: '開発者',
+    github: 'GitHub',
+    madeWith: '❤️で作りました',
+  },
+  theme: {
+    light: 'ライトモード',
+    dark: 'ダークモード',
+  },
+  language: {
+    ko: '한국어',
+    en: 'English',
+    ja: '日本語',
+    zh: '中文',
+  },
+};
+</file>
+
+<file path="src/i18n/ko.ts">
+import type { Translations } from '../types';
+
+export const ko: Translations = {
+  app: {
+    title: 'SVG 변환기',
+    subtitle: '이미지를 벡터로',
+    description: 'PNG, JPG, WEBP 이미지를 고품질 SVG 벡터 파일로 변환하세요',
+    descriptionSvgToImage: 'SVG 파일을 PNG, JPG, WEBP 이미지로 변환하세요',
+  },
+  mode: {
+    imageToSvg: '이미지에서 SVG로',
+    svgToImage: 'SVG에서 이미지로',
+  },
+  dropzone: {
+    title: '이미지를 여기에 끌어다 놓으세요',
+    titleSvg: 'SVG 파일을 여기에 끌어다 놓으세요',
+    subtitle: '또는 클릭하여 파일 선택',
+    dragActive: '파일을 놓으세요!',
+    formats: '지원 형식: PNG, JPG, WEBP (최대 10MB)',
+    formatsSvg: '지원 형식: SVG (최대 10MB)',
+  },
+  settings: {
+    title: '변환 설정',
+    colorCount: '색상 수',
+    colorCountDesc: '출력 SVG의 색상 개수 (2-32)',
+    particleSize: '파티클 크기',
+    particleSizeDesc: '원의 반지름 (1-10)',
+    particleDensity: '파티클 밀도',
+    particleDensityDesc: '샘플링 밀도 (10-100%)',
+    blur: '블러',
+    blurDesc: '노이즈 제거를 위한 블러 강도',
+    reset: '설정 초기화',
+  },
+  actions: {
+    convert: '변환하기',
+    converting: '변환 중...',
+    download: '다운로드',
+    downloadAll: '모두 다운로드',    downloadSvg: 'SVG 다운로드',
+    downloadPng: 'PNG 다운로드',
+    downloadJpg: 'JPG 다운로드',
+    downloadWebp: 'WEBP 다운로드',
+    copy: '복사',
+    copied: '복사됨!',
+    clear: '모두 지우기',
+    remove: '삭제',
+  },
+  results: {
+    title: '변환 결과',
+    noResults: '변환된 이미지가 없습니다',
+    svgCode: 'SVG 코드',
+    preview: '미리보기',
+    colors: '추출된 색상',
+    processingTime: '처리 시간',
+    seconds: '초',
+  },
+  errors: {
+    invalidFile: '지원하지 않는 파일 형식입니다',
+    conversionFailed: '변환에 실패했습니다',
+    fileTooLarge: '파일 크기가 너무 큽니다 (최대 10MB)',
+    noImages: '변환할 이미지를 추가해주세요',
+  },
+  footer: {
+    developer: '개발자',
+    github: 'GitHub',
+    madeWith: '❤️로 만들었습니다',
+  },
+  theme: {
+    light: '라이트 모드',
+    dark: '다크 모드',
+  },
+  language: {
+    ko: '한국어',
+    en: 'English',
+    ja: '日本語',
+    zh: '中文',
+  },
+};
+</file>
+
+<file path="src/i18n/zh.ts">
+import type { Translations } from '../types';
+
+export const zh: Translations = {
+  app: {
+    title: 'SVG转换器',
+    subtitle: '图像转矢量',
+    description: '将PNG、JPG、WEBP图像转换为高质量SVG矢量文件',
+    descriptionSvgToImage: '将SVG文件转换为PNG、JPG、WEBP图像',
+  },
+  mode: {
+    imageToSvg: '图像转SVG',
+    svgToImage: 'SVG转图像',
+  },
+  dropzone: {
+    title: '将图片拖放到这里',
+    titleSvg: '将SVG文件拖放到这里',
+    subtitle: '或点击选择文件',
+    dragActive: '放开文件！',
+    formats: '支持格式：PNG、JPG、WEBP（最大10MB）',
+    formatsSvg: '支持格式：SVG（最大10MB）',
+  },
+  settings: {
+    title: '转换设置',
+    colorCount: '颜色数量',
+    colorCountDesc: '输出SVG的颜色数量（2-32）',
+    particleSize: '粒子大小',
+    particleSizeDesc: '圆形半径（1-10）',
+    particleDensity: '粒子密度',
+    particleDensityDesc: '采样密度（10-100%）',
+    blur: '模糊',
+    blurDesc: '去噪模糊强度',
+    reset: '重置设置',
+  },
+  actions: {
+    convert: '转换',
+    converting: '转换中...',
+    download: '下载',
+    downloadAll: '全部下载',
+    downloadSvg: '下载SVG',
+    downloadPng: '下载PNG',
+    downloadJpg: '下载JPG',
+    downloadWebp: '下载WEBP',
+    copy: '复制',
+    copied: '已复制！',
+    clear: '清除全部',
+    remove: '删除',
+  },
+  results: {
+    title: '转换结果',
+    noResults: '没有转换的图像',
+    svgCode: 'SVG代码',
+    preview: '预览',
+    colors: '提取的颜色',
+    processingTime: '处理时间',
+    seconds: '秒',
+  },
+  errors: {
+    invalidFile: '不支持的文件格式',
+    conversionFailed: '转换失败',
+    fileTooLarge: '文件太大（最大10MB）',
+    noImages: '请添加要转换的图像',
+  },
+  footer: {
+    developer: '开发者',
+    github: 'GitHub',
+    madeWith: '用❤️制作',
+  },
+  theme: {
+    light: '浅色模式',
+    dark: '深色模式',
+  },
+  language: {
+    ko: '한국어',
+    en: 'English',
+    ja: '日本語',
+    zh: '中文',
+  },
+};
+</file>
+
+<file path="README.md">
+# SVG Converter 🎨
+
+A web application for bidirectional conversion between images and SVG files.
+
+🌐 **Live Demo**: https://img-to-svg-converter.vercel.app (Auto-generated after Vercel deployment)
+
+## ✨ Features
+
+### Bidirectional Conversion
+- **Image → SVG**: Convert PNG, JPG, WEBP images to vector SVG
+- **SVG → Image**: Convert SVG files to PNG, JPG, or WEBP images
+- **One-Click Toggle**: Easy mode switching via header toggle button
+
+### Core Capabilities
+- **Particle-Based Rendering**: High-quality SVG generation using 2-pass grid system
+- **Multiple Export Formats**: SVG, PNG (2× resolution), JPG (white background), WEBP (optimized)
+- **Drag & Drop**: Simple file upload interface
+- **Color Analysis**: Automatic extraction of unique colors from images
+- **Customization**: Adjust particle size, density, blur strength, and more
+
+### User Experience
+- **Dark/Light Mode**: Auto-sync with system theme
+- **Multi-language Support**: Korean, English, Japanese, Chinese (auto-detect)
+- **SVG Code Preview**: Instantly view and copy conversion results
+- **Batch Processing**: Convert multiple images simultaneously
+
+## 🚀 Getting Started
+
+### Development Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🚀 Vercel Deployment
+
+### Method 1: Vercel CLI (Recommended)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Production deploy
+vercel --prod
+```
+
+### Method 2: GitHub Integration (Auto Deploy)
+
+1. **Create Vercel Account**
+   - Visit https://vercel.com
+   - Sign in with GitHub account
+
+2. **Import Project**
+   - Click "New Project"
+   - Select GitHub repository
+   - Framework: Vite (auto-detected)
+   - Click "Deploy"
+
+3. **Auto Deploy Setup**
+   - Push to main branch → auto deploy
+   - Each PR creates preview deployment
+
+## 📖 How to Use
+
+### Image → SVG Conversion
+
+1. Select **"Image to SVG"** mode in header
+2. Upload image files (PNG, JPG, WEBP)
+3. Adjust particle size, density, blur settings
+4. Click "Convert" button
+5. Download as SVG, PNG, JPG, WEBP or copy code
+
+### SVG → Image Conversion
+
+1. Select **"SVG to Image"** mode in header
+2. Upload SVG file
+3. Click "Convert" button (no settings required)
+4. Download as PNG, JPG, or WEBP format
+
+## 🛠️ Tech Stack
+
+- **React 19** + TypeScript
+- **Vite** - Build tool
+- **Zustand** - State management
+- **react-dropzone** - File upload
+- **lucide-react** - Icons
+- **react-hot-toast** - Notifications
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # UI components
+│   ├── Header/         # Header (theme/language/mode toggle)
+│   ├── Footer/         # Footer (developer info)
+│   ├── Dropzone/       # File upload area
+│   ├── ImageList/      # Uploaded images list
+│   ├── Settings/       # Conversion settings panel
+│   └── Results/        # Conversion results display
+├── i18n/               # Translation files
+├── store/              # Zustand state management
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+│   ├── imageConverter.ts  # Image → SVG conversion logic
+│   ├── svgToImage.ts      # SVG → Image conversion logic
+│   └── security.ts        # Security utilities
+└── App.tsx             # Main app component
+```
+
+## 🔒 Security Features
+
+- **CSP (Content Security Policy)**: XSS attack prevention
+- **Input Validation**: File type/size verification
+- **SVG Sanitization**: Malicious code removal
+- **Rate Limiting**: Prevent excessive requests
+- **Security Headers**: X-Frame-Options, X-Content-Type-Options, etc.
+
+## 🎨 Conversion Algorithm (Image → SVG)
+
+1. **Image Preprocessing**: Resize to max 600×600, optional Gaussian blur
+2. **Background Detection**: Auto-detect background color via 4-corner pixel sampling
+3. **2-Pass Grid Sampling**:
+   - First pass: Aligned grid sampling
+   - Second pass: Offset grid to fill gaps
+4. **Color Extraction**: Unique color extraction with luminance-based filtering
+5. **SVG Generation**: Convert each particle to SVG circle element
+
+## 🖼️ Export Formats
+
+- **SVG**: Vector graphics (lossless, scalable)
+- **PNG**: 2× resolution, transparent background support
+- **JPG**: White background, 95% quality
+- **WEBP**: Optimized format, customizable quality
+
+## 📄 License
+
+MIT License
+
+## 👨‍💻 Developer
+
+- GitHub: [@jiwonjae-svg](https://github.com/jiwonjae-svg)
+
+---
+
+Made with ❤️
+</file>
+
+</files>

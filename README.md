@@ -1,158 +1,143 @@
-# SVG Converter 🎨
+# SVG Converter
 
-A web application for bidirectional conversion between images and SVG files.
+Browser-based image/SVG conversion tool built with React, TypeScript, and Vite.
 
-🌐 **Live Demo**: https://img-to-svg-converter.vercel.app (Auto-generated after Vercel deployment)
+Live demo: [https://img-to-svg-converter.vercel.app](https://img-to-svg-converter.vercel.app)
 
-## ✨ Features
+## Product Summary
 
-### Bidirectional Conversion
-- **Image → SVG**: Convert PNG, JPG, WEBP images to vector SVG
-- **SVG → Image**: Convert SVG files to PNG, JPG, or WEBP images
-- **One-Click Toggle**: Easy mode switching via header toggle button
+SVG Converter is a privacy-first browser tool for converting raster images into particle-style SVG output and exporting SVG files back into PNG, JPG, or WEBP images. It is designed as a practical portfolio project: the main focus is understandable client-side image processing, deterministic conversion logic, and clear documentation rather than a large feature set.
 
-### Core Capabilities
-- **Particle-Based Rendering**: High-quality SVG generation using 2-pass grid system
-- **Multiple Export Formats**: SVG, PNG (2× resolution), JPG (white background), WEBP (optimized)
-- **Drag & Drop**: Simple file upload interface
-- **Color Analysis**: Automatic extraction of unique colors from images
-- **Customization**: Adjust particle size, density, blur strength, and more
+## Key Features
 
-### User Experience
-- **Dark/Light Mode**: Auto-sync with system theme
-- **Multi-language Support**: Korean, English, Japanese, Chinese (auto-detect)
-- **SVG Code Preview**: Instantly view and copy conversion results
-- **Batch Processing**: Convert multiple images simultaneously
+- Convert PNG, JPG, and WEBP images into SVG markup.
+- Convert SVG files into PNG, JPG, or WEBP output.
+- Tune image-to-SVG conversion with particle size, sampling density, and blur controls.
+- Preview generated SVG code and copy or download results.
+- Process multiple files through the browser UI.
+- Switch between Korean, English, Japanese, and Chinese UI text.
+- Validate file type and file size before conversion.
 
-## 🚀 Getting Started
+## Tech Stack
 
-### Development Setup
+- React 19
+- TypeScript
+- Vite
+- Zustand
+- react-dropzone
+- lucide-react
+- react-hot-toast
+- Vitest
+
+## Architecture Or Data Flow
+
+The app is a static frontend application. There is no backend conversion service in the runtime path.
+
+Image-to-SVG data flow:
+
+1. File input: the user drops or selects a local PNG, JPG, or WEBP file.
+2. Browser object URL: the file is loaded into an `Image` element without uploading it.
+3. Canvas pixel extraction: the image is drawn to a canvas, resized to a maximum 600px edge, and read with `getImageData`.
+4. Optional blur: a separable Gaussian blur can smooth noisy input before sampling.
+5. 2-Pass Grid Sampling: the first pass samples an aligned grid; the second pass samples offset midpoint positions to reduce visible gaps.
+6. Luminance filtering: bright corner-derived background pixels and transparent pixels are filtered out.
+7. Adjacent region merging: same-color neighboring particles are clustered into fewer SVG path groups.
+8. SVG generation: sorted color groups are emitted as SVG circles or path elements.
+9. Result handling: SVG text is wrapped in a local `Blob` and exposed through a browser object URL for preview/download.
+
+SVG-to-image data flow:
+
+1. SVG text is loaded in the browser.
+2. The SVG is rendered into an `Image`.
+3. Canvas exports the result as PNG, JPG, or WEBP.
+
+## Privacy Model
+
+- Uploaded image and SVG files are not uploaded by the conversion code.
+- There is no server-side image processing path.
+- Conversion input, Canvas pixel extraction, SVG generation, and export all happen in the browser.
+- Generated files are created as local browser `Blob` object URLs.
+
+## Technical Challenges
+
+- Keeping image processing responsive while sampling enough pixels for recognizable SVG output.
+- Making the conversion algorithm explainable: sampling, filtering, clustering, and SVG generation are separated into pure functions.
+- Avoiding server-side processing so the app remains privacy-first and easy to host as a static site.
+- Balancing SVG detail against output size by using density controls and adjacent same-color clustering.
+- Preserving existing bidirectional conversion behavior while improving testability.
+
+## What I Improved
+
+- Refactored the image-to-SVG conversion core into pure functions in `src/utils/imageToSvgAlgorithm.ts`.
+- Kept DOM-specific work in `src/utils/imageConverter.ts`, limited to image loading, canvas extraction, and browser download helpers.
+- Added unit tests for RGB formatting, luminance, background detection, two-pass grid sampling, transparent pixel filtering, adjacent particle clustering, SVG generation, and blur output stability.
+- Added a repeatable benchmark script for synthetic image sizes.
+- Rewrote the README to explain product intent, architecture, privacy, performance, tests, and recruiter-facing context.
+- Added `AGENTS.md` with repository-specific contribution guidance.
+
+## How To Run Locally
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
+```
 
-# Build for production
+The Vite dev server starts on port `3000` by default.
+
+Production build preview:
+
+```bash
 npm run build
-
-# Preview production build
 npm run preview
 ```
 
-## 🚀 Vercel Deployment
+## Tests
 
-### Method 1: Vercel CLI (Recommended)
+Run unit tests:
 
 ```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-
-# Production deploy
-vercel --prod
+npm test
 ```
 
-### Method 2: GitHub Integration (Auto Deploy)
+Run lint:
 
-1. **Create Vercel Account**
-   - Visit https://vercel.com
-   - Sign in with GitHub account
-
-2. **Import Project**
-   - Click "New Project"
-   - Select GitHub repository
-   - Framework: Vite (auto-detected)
-   - Click "Deploy"
-
-3. **Auto Deploy Setup**
-   - Push to main branch → auto deploy
-   - Each PR creates preview deployment
-
-## 📖 How to Use
-
-### Image → SVG Conversion
-
-1. Select **"Image to SVG"** mode in header
-2. Upload image files (PNG, JPG, WEBP)
-3. Adjust particle size, density, blur settings
-4. Click "Convert" button
-5. Download as SVG, PNG, JPG, WEBP or copy code
-
-### SVG → Image Conversion
-
-1. Select **"SVG to Image"** mode in header
-2. Upload SVG file
-3. Click "Convert" button (no settings required)
-4. Download as PNG, JPG, or WEBP format
-
-## 🛠️ Tech Stack
-
-- **React 19** + TypeScript
-- **Vite** - Build tool
-- **Zustand** - State management
-- **react-dropzone** - File upload
-- **lucide-react** - Icons
-- **react-hot-toast** - Notifications
-
-## 📁 Project Structure
-
-```
-src/
-├── components/          # UI components
-│   ├── Header/         # Header (theme/language/mode toggle)
-│   ├── Footer/         # Footer (developer info)
-│   ├── Dropzone/       # File upload area
-│   ├── ImageList/      # Uploaded images list
-│   ├── Settings/       # Conversion settings panel
-│   └── Results/        # Conversion results display
-├── i18n/               # Translation files
-├── store/              # Zustand state management
-├── types/              # TypeScript type definitions
-├── utils/              # Utility functions
-│   ├── imageConverter.ts  # Image → SVG conversion logic
-│   ├── svgToImage.ts      # SVG → Image conversion logic
-│   └── security.ts        # Security utilities
-└── App.tsx             # Main app component
+```bash
+npm run lint
 ```
 
-## 🔒 Security Features
+Run production build:
 
-- **CSP (Content Security Policy)**: XSS attack prevention
-- **Input Validation**: File type/size verification
-- **SVG Sanitization**: Malicious code removal
-- **Rate Limiting**: Prevent excessive requests
-- **Security Headers**: X-Frame-Options, X-Content-Type-Options, etc.
+```bash
+npm run build
+```
 
-## 🎨 Conversion Algorithm (Image → SVG)
+Run the image-to-SVG benchmark:
 
-1. **Image Preprocessing**: Resize to max 600×600, optional Gaussian blur
-2. **Background Detection**: Auto-detect background color via 4-corner pixel sampling
-3. **2-Pass Grid Sampling**:
-   - First pass: Aligned grid sampling
-   - Second pass: Offset grid to fill gaps
-4. **Color Extraction**: Unique color extraction with luminance-based filtering
-5. **SVG Generation**: Convert each particle to SVG circle element
+```bash
+npm run benchmark
+```
 
-## 🖼️ Export Formats
+Current benchmark sample from `npm run benchmark` on the local development machine:
 
-- **SVG**: Vector graphics (lossless, scalable)
-- **PNG**: 2× resolution, transparent background support
-- **JPG**: White background, 95% quality
-- **WEBP**: Optimized format, customizable quality
+| Sample | Pixels | Median ms | Avg ms | Particles | SVG chars |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 128x128 | 16,384 | 2.10 | 2.22 | 512 | 23,703 |
+| 256x256 | 65,536 | 7.06 | 7.42 | 2,048 | 95,711 |
+| 512x512 | 262,144 | 27.87 | 29.34 | 8,192 | 386,885 |
 
-## 📄 License
+Benchmark scope: synthetic RGBA input passed directly to the pixel-to-SVG pipeline with `particleSize=2`, `particleDensity=50`, and `blur=0`. It does not include browser file decoding, canvas drawing, download time, or UI rendering.
+
+## 日本語サマリー
+
+このプロジェクトは、私のポートフォリオ用に開発したアプリケーションです。
+主な目的は、実用的な機能実装、パフォーマンス改善、セキュリティ設計、または多言語対応の経験を示すことです。
+
+採用担当者向けには、ブラウザ内で完結する画像処理、プライバシーを重視した設計、アルゴリズムの説明可能性、単体テストとベンチマークによる品質確認を示すことを重視しています。
+
+## License
 
 MIT License
 
-## 👨‍💻 Developer
+## Developer
 
 - GitHub: [@jiwonjae-svg](https://github.com/jiwonjae-svg)
-
----
-
-Made with ❤️

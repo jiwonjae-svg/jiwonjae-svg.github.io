@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { useDropzone, type Accept } from 'react-dropzone';
 import { Upload, Image, AlertCircle } from 'lucide-react';
 import { useAppStore } from '../../store';
 import { getTranslation } from '../../i18n';
@@ -38,19 +38,19 @@ export const Dropzone: React.FC = () => {
   }, [addImages, t.errors]);
 
   // 변환 모드에 따라 허용 파일 형식 변경
-  const acceptedFileTypes = conversionMode === 'image-to-svg' 
+  const acceptedFileTypes: Accept = conversionMode === 'image-to-svg'
     ? {
         'image/png': ['.png'],
         'image/jpeg': ['.jpg', '.jpeg'],
         'image/webp': ['.webp'],
-      } as const
+      }
     : {
         'image/svg+xml': ['.svg'],
-      } as const;
+      };
 
   const { getRootProps, getInputProps, isDragActive, isDragReject } = useDropzone({
     onDrop,
-    accept: acceptedFileTypes as any,
+    accept: acceptedFileTypes,
     maxSize: 10 * 1024 * 1024, // 10MB
     multiple: true,
   });
